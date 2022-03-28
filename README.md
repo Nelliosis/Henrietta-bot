@@ -93,8 +93,7 @@ If you want to add more functionality to the bot, fork the bot and [make it your
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+(_under construction_)
 
 ### Prerequisites
 
@@ -111,9 +110,9 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+(_under construction_)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more command examples, please refer to the [Wiki](https://github.com/Nelliosis/Henrietta-bot/wiki)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -152,7 +151,7 @@ If you want to:
 2. modify the code
 3. tinker with the bot 
 
-then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. \
+then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. Use the [Getting Started](#getting-started) section to get you up and running with the bot's development
 Though please do remember to credit my work.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -190,6 +189,7 @@ I am incredibly thankful to the following resources for helping me throughout th
 * [GitHub Markdown Guide](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
 * [Shields.io](https://shields.io/category/license)
 * [Visual Studio Code](https://code.visualstudio.com/)
+* [Toptal's Gitignore.io](https://www.toptal.com/developers/gitignore)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -197,11 +197,11 @@ I am incredibly thankful to the following resources for helping me throughout th
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/issues/Nelliosis/Henrietta-bot?style=for-the-badge
 [forks-url]: https://github.com/Nelliosis/Henrietta-bot/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/Nelliosis/Henrietta-bot?style=for-the-badge
 [stars-url]: https://github.com/Nelliosis/Henrietta-bot/stargazers
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/Nelliosis/Henrietta-bot?style=for-the-badge
 [license-url]: https://github.com/Nelliosis/Henrietta-bot/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jcapawing
