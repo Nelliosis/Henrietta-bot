@@ -183,13 +183,22 @@ Project Link: [https://github.com/Nelliosis/Henrietta-bot](https://github.com/Ne
 
 I am incredibly thankful to the following resources for helping me throughout the development process:
 
-* [Othneildrew's Best Readme Template](https://github.com/othneildrew/Best-README-Template)
-* [ikatyang's Emoji Cheat Sheet for GitHub Markdown](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
-* [Markdown Guide](https://www.markdownguide.org/basic-syntax/#reference-style-links)
-* [GitHub Markdown Guide](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
-* [Shields.io](https://shields.io/category/license)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Toptal's Gitignore.io](https://www.toptal.com/developers/gitignore)
+* Markdown Resources
+  * [Othneildrew's Best Readme Template](https://github.com/othneildrew/Best-README-Template)
+  * [ikatyang's Emoji Cheat Sheet for GitHub Markdown](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
+  * [Markdown Guide](https://www.markdownguide.org/basic-syntax/#reference-style-links)
+  * [GitHub Markdown Guide](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
+* Guides & Documentation
+  * [niconiconii's / 3chospirits's Discord Bot YouTube Tutorial Series](https://www.youtube.com/playlist?list=PLOlSzPEdp-bRnCzZX6qnKehutm2nb_tN-)
+  * [Discord.js Guide](https://discordjs.guide/#before-you-begin)
+  * [Discord.js Documentation](https://discord.js.org/#/docs/discord.js/stable/general/welcome)
+  * [Mozilla's JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  * [javascript.info: The Modern JavaScript Tutorial](https://javascript.info/)
+
+* Miscellaneous
+  * [Shields.io](https://shields.io/category/license)
+  * [Visual Studio Code](https://code.visualstudio.com/)
+  * [Toptal's Gitignore.io](https://www.toptal.com/developers/gitignore)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
