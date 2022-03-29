@@ -8,6 +8,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+![Status][status-shield]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![GNU GPLv3.0][license-shield]][license-url]
@@ -181,7 +182,10 @@ Project Link: [https://github.com/Nelliosis/Henrietta-bot](https://github.com/Ne
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-I am incredibly thankful to the following resources for helping me throughout the development process:
+I am incredibly thankful to the following resources and people for helping me throughout the development process:
+
+* Art
+  * My original character Henrietta, was designed and made by [Seruneechan](https://twitter.com/Seruneechan).
 
 * Markdown Resources
   * [Othneildrew's Best Readme Template](https://github.com/othneildrew/Best-README-Template)
@@ -215,3 +219,4 @@ I am incredibly thankful to the following resources for helping me throughout th
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jcapawing
 [product-screenshot]: images/screenshot.png
+[status-shield]: https://img.shields.io/badge/Status-Work%20in%20Progress-orange?style=for-the-badge
