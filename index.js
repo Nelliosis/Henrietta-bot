@@ -18,18 +18,24 @@ const client = new Client({
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
+// prepare and read event directory
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+    if (event.once) {
+        client.once(event.name, (...args) => event.execute(...args));
+    }
+    else {
+        client.on(event.name, (...args) => event.execute(...args));
+    }
+}
+
 //read commands directory
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.data.name, command);
 }
 
-// When the client is ready, run
-client.once('ready', () => {
-    console.log('Welcome, Henrietta Huckleberry.');
-    console.log(`Connected to the Berry Network as: ${client.user.tag}`);
-
-});
 
 // call commands on interaction
 client.on('interactionCreate', async interaction => {
@@ -52,12 +58,6 @@ client.on('interactionCreate', async interaction => {
 });
 
 
-// Hello message
-client.on("messageCreate", (message) => {
-    if (message.content == "Hi Hetty") {
-        message.reply(`Hello, <@${message.author.id}>`)
-    }
-})
 
 // Login to Discord
 client.login(token);
