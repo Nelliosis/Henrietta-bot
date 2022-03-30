@@ -1,13 +1,6 @@
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 ![Status][status-shield]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -124,6 +117,10 @@ _For more command examples, please refer to the [Wiki](https://github.com/Nellio
 
 As I continue developing my bot, I will update this Roadmap.
 
+- [x] Basic Functionality
+  - [x] Replies with Hello
+  - [x] Can accept new commands
+  - [x] Receives and parses events
 - [ ] Music
   - [ ] Search
   - [ ] Play
@@ -132,6 +129,8 @@ As I continue developing my bot, I will update this Roadmap.
     - [ ] enqueue
     - [ ] dequeue
     - [ ] modify segment of existing queue
+    - [ ] Enqueue a certain specific amount of tracks
+    - [ ] Specify which track to enqueue
 - [ ] Polling
   - [ ] add options to poll
   - [ ] delete options to poll
@@ -152,8 +151,9 @@ If you want to:
 2. modify the code
 3. tinker with the bot 
 
-then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. Use the [Getting Started](#getting-started) section to get you up and running with the bot's development
-Though please do remember to credit my work.
+then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. Use the [Getting Started](#getting-started) section to get you up and running with the bot's development. \
+Though please do remember to credit my work. \
+*_NOTE:_* The artwork and logo are my personal property, thus their images cannot be used in your forks. I recommend branding the bot as something different altogether.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
