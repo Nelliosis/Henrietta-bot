@@ -128,8 +128,9 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] Play
     - [x] With link
     - [x] With query
-  - [ ] Shuffle
+  - [ ] Error handing
   - [ ] Queue
+    - [ ] Shuffle
     - [ ] Enqueue
     - [ ] Dequeue
     - [ ] Modify segment of existing queue
