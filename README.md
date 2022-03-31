@@ -121,7 +121,7 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] Replies with Hello
   - [x] Can accept new commands
   - [x] Receives and parses events
-- [ ] Music
+- [x] Music
   - [x] Search
     - [x] With link
     - [x] With query
