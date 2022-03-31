@@ -122,20 +122,28 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] Can accept new commands
   - [x] Receives and parses events
 - [ ] Music
-  - [ ] Search
-  - [ ] Play
+  - [x] Search
+    - [x] With link
+    - [x] With query
+  - [x] Play
+    - [x] With link
+    - [x] With query
   - [ ] Shuffle
   - [ ] Queue
-    - [ ] enqueue
-    - [ ] dequeue
-    - [ ] modify segment of existing queue
+    - [ ] Enqueue
+    - [ ] Dequeue
+    - [ ] Modify segment of existing queue
     - [ ] Enqueue a certain specific amount of tracks
     - [ ] Specify which track to enqueue
+- [ ] Replies
+  - [ ] Shows 'Now Playing'
+  - [ ] Shows metadata [title, length]
+  - [ ] Shows Queue
 - [ ] Polling
-  - [ ] add options to poll
-  - [ ] delete options to poll
+  - [ ] Add options to poll
+  - [ ] Delete options to poll
 - [ ] Calendar Scheduling to Google Calendar
-  - [ ] create a calendar event
+  - [ ] Create a calendar event
   - [ ] Send a message to attendee a Google Calendar event invitation
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -152,8 +160,10 @@ If you want to:
 3. tinker with the bot 
 
 then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. Use the [Getting Started](#getting-started) section to get you up and running with the bot's development. \
-Though please do remember to credit my work. \
-*_NOTE:_* The artwork and logo are my personal property, thus their images cannot be used in your forks. I recommend branding the bot as something different altogether.
+Though please do remember to credit my work.
+
+### Note:
+The artwork and logo are my personal property, thus their images cannot be used in your forks. I recommend branding the bot as something different altogether.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -219,4 +229,4 @@ I am incredibly thankful to the following resources and people for helping me th
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jcapawing
 [product-screenshot]: images/screenshot.png
-[status-shield]: https://img.shields.io/badge/Status-Work%20in%20Progress-orange?style=for-the-badge
+[status-shield]: https://img.shields.io/badge/Status-Under%20Development-orange?style=for-the-badge
