@@ -128,7 +128,7 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] Play
     - [x] With link
     - [x] With query
-  - [ ] Error handing
+  - [ ] Error handling
   - [ ] Queue
     - [ ] Shuffle
     - [ ] Enqueue
