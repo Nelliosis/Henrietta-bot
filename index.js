@@ -1,4 +1,4 @@
-// Require the necessary discord.js classes
+// external libraries
 const fs = require('node:fs');
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
@@ -30,7 +30,7 @@ for (const file of eventFiles) {
     }
 }
 
-//read commands directory
+// prepare and read commands directory
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.data.name, command);
