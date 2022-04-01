@@ -124,6 +124,8 @@ As I continue developing my bot, I will update this Roadmap.
 - [x] Music
   - [x] Search
     - [x] With link
+      - [x] By Spotify
+      - [x] By YouTube
     - [x] With query
   - [x] Play
     - [x] With link
