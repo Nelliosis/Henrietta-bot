@@ -1,15 +1,14 @@
+const play = require('play-dl');
+
 class searchHelper {
     constructor(input) {
         this.input = input;
     }
-    whichPlatform() {
-        let sp = "spotify";
-        let yt = "youtube";
-        if (this.input.includes("youtube")) {
-            return yt;
-        }
-        else {
-            return sp;
+    async platformParser(platform) {
+        if (platform == 'sp_track') {
+            let track = await play.spotify(this.input);
+            let trackInfo = `${track.name} - ${track.artists[0].name}`;
+            return trackInfo;
         }
     }
     isURL() {
