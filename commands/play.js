@@ -3,7 +3,8 @@ const play = require('play-dl');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const {
 	AudioPlayerStatus,
-	StreamType,
+    StreamType,
+    NoSubscriberBehavior,
 	createAudioPlayer,
 	createAudioResource,
 	joinVoiceChannel,
@@ -21,8 +22,15 @@ module.exports = {
                 .setDescription('input: link of playlist or video')
                 .setRequired(true)),
     async execute(interaction) {
+
+        //refresh the Spotify Token if expired
+        if (play.is_expired()) await play.refreshToken();
+
         // Get input from option into a variable
         const input = interaction.options.getString('input');
+
+        //report to log
+        console.log(`[BERRY OPERATION] ${interaction.user.tag} invoked /play with query ${input}`);
 
         // Join the voice channel
         const connection = joinVoiceChannel({
@@ -35,7 +43,12 @@ module.exports = {
         // Set the player
         const stream = await searcher.inputSearcher(input);
         const resource = createAudioResource(stream.stream, { inputType: stream.type },);
-        const player = createAudioPlayer();
+        const player = createAudioPlayer({
+            behaviors: {
+                noSubscriber: NoSubscriberBehavior.Pause
+            },
+        });
+
 
         // Play
         player.play(resource);
@@ -43,10 +56,11 @@ module.exports = {
 
         // when error has occured, display the error
         player.on('error', error => {
-        console.error(`[BERRY ERROR]: ${error.message} with resource ${error.name}`);
+        console.error(`[BERRY FATAL]: Play failed. ${error.message} with ${error.name}`);
         player.play(getNextResource());
         });
 
+        console.log("[BERRY OPERATION] Play inititated.")
         // When the bot has transitioned to idle, disconnect
         player.on(AudioPlayerStatus.Idle, () => connection.destroy());
     }
