@@ -8,6 +8,7 @@ class searchHelper {
         if (platform == 'sp_track') {
             let track = await play.spotify(this.input);
             let trackInfo = `${track.name} - ${track.artists[0].name}`;
+            console.log(`[BERRY OPERATION] Henrietta returned with query: ${trackInfo}. Attempting to play.`);
             return trackInfo;
         }
     }
