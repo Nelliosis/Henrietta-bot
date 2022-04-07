@@ -151,7 +151,7 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] by url
   - [x] by playlist
   - [x] by query
--[ ] pause
+- [ ] pause
 - [x] Skip
 - [ ] Now Playing
 - [ ] queue
