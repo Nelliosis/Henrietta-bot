@@ -53,7 +53,7 @@ client.on('interactionCreate', async interaction => {
         await command.execute(interaction);
     } catch (error) {
         console.error(error);
-        await interaction.reply({ content: '[BERRY FATAL]: Error during execution', ephemeral: true });
+        await interaction.reply({ content: '[BERRY FATAL]: Error during execution. See console log for details.', ephemeral: false });
     }
 });
 
