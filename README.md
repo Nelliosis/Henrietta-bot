@@ -133,11 +133,8 @@ As I continue developing my bot, I will update this Roadmap.
   - [ ] Error handling
   - [ ] Queue
     - [ ] Shuffle
-    - [ ] Enqueue
-    - [ ] Dequeue
-    - [ ] Modify segment of existing queue
-    - [ ] Enqueue a certain specific amount of tracks
-    - [ ] Specify which track to enqueue
+    - [x] Enqueue
+    - [x] Dequeue
 - [ ] Replies
   - [ ] Shows 'Now Playing'
   - [ ] Shows metadata [title, length]
@@ -148,6 +145,28 @@ As I continue developing my bot, I will update this Roadmap.
 - [ ] Calendar Scheduling to Google Calendar
   - [ ] Create a calendar event
   - [ ] Send a message to attendee a Google Calendar event invitation
+
+### Commands to implement
+- [x] play
+  - [x] by url
+  - [x] by playlist
+  - [x] by query
+-[ ] pause
+- [x] Skip
+- [ ] Now Playing
+- [ ] queue
+  - [ ] show
+  - [ ] clear
+- [ ] shuffle
+- [ ] poll
+- [ ] schedule
+- [ ] disconnect
+
+### Future implementations
+if my understanding continues to improve, I can probably implement these somewhere in the future.
+- Modify segment of existing queue
+- Enqueue a certain specific amount of tracks
+- Specify which track to enqueue
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -162,11 +181,10 @@ If you want to:
 2. modify the code
 3. tinker with the bot 
 
-then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. Use the [Getting Started](#getting-started) section to get you up and running with the bot's development. \
-Though please do remember to credit my work.
+then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. Use the [Getting Started](#getting-started) section to get you up and running with the bot's development. **_Though please do remember to credit my work._**
 
 ### Note:
-The artwork and logo are my personal property, thus their images cannot be used in your forks. I recommend branding the bot as something different altogether.
+The **artwork and logo are my personal property**, thus their images _cannot_ be used in your forks. I recommend branding the bot as something different altogether.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -211,6 +229,16 @@ I am incredibly thankful to the following resources and people for helping me th
   * [Discord.js Documentation](https://discord.js.org/#/docs/discord.js/stable/general/welcome)
   * [Mozilla's JavaScript Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
   * [javascript.info: The Modern JavaScript Tutorial](https://javascript.info/)
+  * [Play-dl Documentation](https://play-dl.github.io/index.html)
+  * [Play-dl's examples for YT, SP and SO](https://github.com/play-dl/play-dl/tree/main/examples)
+* Queue Resources & Guides
+  * The Queue System I implemented was heavily inspired by [Cyntac's Switch Discord Music Bot](https://github.com/28Goo/Switch)
+  * The Queue data structure I made was based from [JavaScript Tutorial's Queue implementation](https://www.javascripttutorial.net/javascript-queue/) with some new self-made methods.
+  * [Ondrej Polesny's JavaScript Array of Objects Tutorial](https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/)
+  * [Amanda Fawcett's JavaScript Map and Set tutorial: How to use new built-in classes](https://www.educative.io/blog/javascript-map-set)
+  * [Declaring Multiple module.exports Functions on StackOverFlow](https://stackoverflow.com/questions/16631064/declare-multiple-module-exports-in-node-js)
+  * [Psionatix's Code Snippit for PlayerStates on Reddit](https://www.reddit.com/r/Discordjs/comments/srjzh0/how_to_loop_music_nonstop_discordjs/)
+  * [Elson Correia's An Introduction to Queue Data Structure in Javascript](https://medium.com/before-semicolon/queue-data-structure-in-javascript-a8c7927daf06#:~:text=Queue%20Data%20Structure%20is%20a,also%20an%20abstract%20data%20type.)
 
 * Miscellaneous
   * [Shields.io](https://shields.io/category/license)
