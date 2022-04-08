@@ -50,14 +50,13 @@ module.exports = {
             channelId: interaction.member.voice.channel.id,
             guildId: interaction.guild.id,
             adapterCreator: interaction.guild.voiceAdapterCreator,
-        });
+            });
+            //initialize queue
+            queueHandler.makeQueue(guild, connection);
         }
 
         //refresh token
         if (play.is_expired()) await play.refreshToken();
-
-        //initialize queue
-        queueHandler.makeQueue(guild, connection);
 
         //subcommand handler & add data to queue
         if (interaction.options.getSubcommand() === "url") {
@@ -171,6 +170,17 @@ module.exports = {
                     break;}
             }
         }
+
+        // Check if bot is playing. 
+        // If playing, do not interrupt and return before startPlay executes
+        // Copyright 28Goo
+		const subscription = connection.state.subscription;
+		if (subscription) {
+			const playerStatus = subscription.player.state.status;
+			if (playerStatus === 'playing') {
+				return;
+			}
+		}
 
         await startPlay(interaction);
         
