@@ -40,6 +40,16 @@ function peekAtHead(guild) {
     return head;
 }
 
+function queueIsEmpty(guild) {
+    const guildQueue = queueMap.get(guild);
+    return guildQueue.tracks.isEmpty;
+}
+
+function queueLength(guild) {
+    const guildQueue = queueMap.get(guild); 
+    return guildQueue.tracks.length;
+}
+
 module.exports = {
     makeQueue,
     retrieveQueue,
@@ -47,4 +57,6 @@ module.exports = {
     fromQueue,
     clearQueue,
     peekAtHead,
+    queueIsEmpty,
+    queueLength,
 }
