@@ -28,6 +28,8 @@ class Queue {
     }
 
     destroy() {
+        this.head = 0;
+        this.tail = 0;
         return this.elements = [];
     }
 
