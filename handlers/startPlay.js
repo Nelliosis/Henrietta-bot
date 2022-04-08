@@ -21,12 +21,20 @@ module.exports.startPlay = async (interaction) => {
     //get track data
     const queueHead = queueHandler.peekAtHead(guild);
 
-    //get audio
+    //declare audio variables
     let track, stream;
-    // if SP, get title, else, get link
-    if (queueHead.platform === 'sp') {
+
+    // check if queue is empty, if true, return end of queue and reset queue to 0;
+    if (queueHandler.queueLength(guild) === 0) {
+        console.log('[BERRY NOTE] End of Queue.');
+        await interaction.channel.send('[BERRY NOTE] You have reached the end of the queue.');
+        queueHandler.clearQueue(guild);
+        return;
+    }
+    // if queue has data, play.
+    else if (queueHead.platform === 'sp') {
         [track] = await play.search(queueHead.track, { limit: 1 });
-        stream = await play.stream(track.url);
+        stream = await play.stream(track.url);  
     }
     else {
         stream = await play.stream(queueHead.url);
@@ -52,10 +60,10 @@ module.exports.startPlay = async (interaction) => {
     //recursion & player state
     //copyright 28Goo
     player.on('stateChange', async (oldState, newState) => {
-        console.log(`[BERRY TRANSITION] ${oldState.status} => ${newState.status}`);
-
+        console.log(`[BERRY TRANSITION] ${oldState.status} -> ${newState.status}`);
         if (oldState.status === 'buffering' && newState.status === 'playing') {
             //todo message
+            console.log(`[BERRY OPERATION] Now Playing: ${queueHead.track}, requested by ${queueHead.user}`);
         }
 
         if (oldState.status === 'playing' && newState.status === 'idle') {
