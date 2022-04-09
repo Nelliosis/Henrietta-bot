@@ -24,6 +24,9 @@ module.exports.startPlay = async (interaction) => {
     //declare audio variables
     let track, stream;
 
+    //report to log of queue length
+    console.log(`[BERRY NOTE] Queue length: ${queueHandler.queueLength(guild)} \n Queue isempty: ${queueHandler.queueIsEmpty(guild)}`);
+    
     // check if queue is empty, if true, return end of queue and reset queue to 0;
     if (queueHandler.queueIsEmpty(guild)) {
         console.log('[BERRY NOTE] End of Queue.');
@@ -67,8 +70,14 @@ module.exports.startPlay = async (interaction) => {
         }
 
         if (oldState.status === 'playing' && newState.status === 'idle') {
-            queueHandler.fromQueue(guild);
-            this.startPlay(interaction);
+            //if queue still has data, dequeue, else return.
+            if (!queueHandler.queueIsEmpty(guild)) {
+                queueHandler.fromQueue(guild);
+                this.startPlay(interaction);
+            }
+            else {
+                this.startPlay(interaction);
+            }
         }
     });
 
