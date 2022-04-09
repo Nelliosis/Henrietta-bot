@@ -28,21 +28,23 @@ class Queue {
     }
 
     destroy() {
+
         this.head = 0;
         this.tail = 0;
-        return this.elements = [];
+        this.elements = [];
+        return;
     }
 
     retrieve() {
         return this.elements;
     }
 
-    get length() {
+    get size() {
         return this.tail - this.head;
     }
 
     get isEmpty() {
-        return this.length === 0;
+        return this.size === 0;
     }
 
 }
