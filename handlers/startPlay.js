@@ -25,7 +25,8 @@ module.exports.startPlay = async (interaction) => {
     let track, stream;
 
     //report to log of queue length
-    console.log(`[BERRY NOTE] Queue length: ${queueHandler.queueLength(guild)} \n Queue isempty: ${queueHandler.queueIsEmpty(guild)}`);
+    console.log(`[BERRY NOTE] Queue length: ${queueHandler.queueLength(guild)}`);
+    console.log(`[BERRY NOTE] Queue isempty: ${queueHandler.queueIsEmpty(guild)}`);
     
     // check if queue is empty, if true, return end of queue and reset queue to 0;
     if (queueHandler.queueIsEmpty(guild)) {
