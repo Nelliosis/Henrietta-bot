@@ -42,12 +42,13 @@ function peekAtHead(guild) {
 
 function queueIsEmpty(guild) {
     const guildQueue = queueMap.get(guild);
-    return guildQueue.tracks.isEmpty;
+    if (guildQueue.tracks.isEmpty) return true;
+    else return false;
 }
 
 function queueLength(guild) {
     const guildQueue = queueMap.get(guild); 
-    return guildQueue.tracks.length;
+    return guildQueue.tracks.size;
 }
 
 module.exports = {
