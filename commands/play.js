@@ -17,7 +17,7 @@ module.exports = {
         .setDescription('Commands Henrietta to play & queue music. Supports Spotify and YouTube.')
         .addSubcommand(subcommand =>
             subcommand
-                .setName('link')
+                .setName('url')
                 .setDescription('Loads a track from a URL')
                 .addStringOption(option => option.setName('url').setDescription('Input song URL here.').setRequired(true))
 )
