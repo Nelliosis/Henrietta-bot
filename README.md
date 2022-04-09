@@ -151,16 +151,18 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] by url
   - [x] by playlist
   - [x] by query
-- [ ] pause
-- [x] Skip
+- [x] pause
+- [x] resume
+- [x] skip
+- [x] shuffle
+- [x] disconnect
 - [ ] Now Playing
 - [ ] queue
   - [ ] show
   - [ ] clear
-- [ ] shuffle
 - [ ] poll
 - [ ] schedule
-- [ ] disconnect
+
 
 ### Future implementations
 if my understanding continues to improve, I can probably implement these somewhere in the future.
