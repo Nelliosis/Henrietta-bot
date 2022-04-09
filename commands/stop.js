@@ -18,7 +18,7 @@ module.exports = {
         const connection = getVoiceConnection(guild);
         const player = connection.state.subscription.player; //copyright 28Goo
             
-        player.pause();
+        //player.pause();
         queueHandler.clearQueue(guild);
         player.stop();   
 
