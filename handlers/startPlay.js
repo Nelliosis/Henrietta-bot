@@ -25,7 +25,7 @@ module.exports.startPlay = async (interaction) => {
     let track, stream;
 
     // check if queue is empty, if true, return end of queue and reset queue to 0;
-    if (queueHandler.queueLength(guild) === 0) {
+    if (queueHandler.queueIsEmpty(guild)) {
         console.log('[BERRY NOTE] End of Queue.');
         await interaction.channel.send('[BERRY NOTE] You have reached the end of the queue.');
         queueHandler.clearQueue(guild);
