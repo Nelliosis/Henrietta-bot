@@ -8,9 +8,12 @@ const {
 	createAudioResource,
     getVoiceConnection,
 } = require('@discordjs/voice');
+const { MessageEmbed } = require('discord.js');
 
 //internal libraries
 const queueHandler = require('./queueSystem');
+const { playMessage } = require('../handlers/utilities/playMessage');
+const embedder = require('./utilities/embedder');
 
 module.exports.startPlay = async (interaction) => {
     
@@ -24,6 +27,9 @@ module.exports.startPlay = async (interaction) => {
     //declare audio variables
     let track, stream;
 
+    //declare embed
+    const embed = new MessageEmbed();
+
     //report to log of queue length
     console.log(`[BERRY NOTE] Queue length: ${queueHandler.queueLength(guild)}`);
     console.log(`[BERRY NOTE] Queue isempty: ${queueHandler.queueIsEmpty(guild)}`);
@@ -31,7 +37,8 @@ module.exports.startPlay = async (interaction) => {
     // check if queue is empty, if true, return end of queue and reset queue to 0;
     if (queueHandler.queueIsEmpty(guild)) {
         console.log('[BERRY NOTE] End of Queue.');
-        await interaction.channel.send('[BERRY NOTE] You have reached the end of the queue.');
+        embedder.QueueEmpty(embed);
+        await interaction.channel.send({embeds: [embed]});
         queueHandler.clearQueue(guild);
         return;
     }
@@ -65,14 +72,17 @@ module.exports.startPlay = async (interaction) => {
     //copyright 28Goo
     player.on('stateChange', async (oldState, newState) => {
         console.log(`[BERRY TRANSITION] ${oldState.status} -> ${newState.status}`);
+
         if (oldState.status === 'buffering' && newState.status === 'playing') {
-            //todo message
-            console.log(`[BERRY OPERATION] Now Playing: ${queueHead.track}, requested by ${queueHead.user}`);
+            //embed
+            playMessage(interaction, queueHead)
+            console.log(`[BERRY OPERATION] Now Playing: ${queueHead.track}, requested by ${queueHead.user.username}`);
         }
 
         if (oldState.status === 'playing' && newState.status === 'idle') {
             //if queue still has data, dequeue, else return.
             if (!queueHandler.queueIsEmpty(guild)) {
+                //dequeue if used skip
                 queueHandler.fromQueue(guild);
                 this.startPlay(interaction);
             }
