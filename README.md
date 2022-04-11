@@ -136,8 +136,8 @@ As I continue developing my bot, I will update this Roadmap.
     - [x] Enqueue
     - [x] Dequeue
 - [ ] Replies
-  - [ ] Shows 'Now Playing'
-  - [ ] Shows metadata [title, length]
+  - [x] Shows 'Now Playing'
+  - [x] Shows metadata [title, length]
   - [ ] Shows Queue
 - [ ] Polling
   - [ ] Add options to poll
@@ -156,10 +156,10 @@ As I continue developing my bot, I will update this Roadmap.
 - [x] skip
 - [x] shuffle
 - [x] disconnect
-- [ ] Now Playing
+- [x] Now Playing
 - [ ] queue
   - [ ] show
-  - [ ] clear
+  - [x] clear
 - [ ] poll
 - [ ] schedule
 
@@ -233,6 +233,13 @@ I am incredibly thankful to the following resources and people for helping me th
   * [javascript.info: The Modern JavaScript Tutorial](https://javascript.info/)
   * [Play-dl Documentation](https://play-dl.github.io/index.html)
   * [Play-dl's examples for YT, SP and SO](https://github.com/play-dl/play-dl/tree/main/examples)
+  * [Reqbin's 'How do I add a comments to JSON?'](https://reqbin.com/req/wtvjp1a3/json-comment-example#:~:text=No%2C%20JSON%20is%20a%20data,elements%20will%20still%20be%20data.)
+  * [How to make Embeds with Discord.js on StackOverFlow](https://stackoverflow.com/questions/63502179/how-to-make-an-embed-with-discord-js)
+  * [How to measure time performance in JS on StackOverFlow](https://stackoverflow.com/questions/313893/how-to-measure-time-taken-by-a-function-to-execute)
+  * [How to trim performance.now() decimals on StackOverFlow](https://stackoverflow.com/questions/22550791/javascript-and-performance-now-and-trimming-after-the-decimal)
+  * [Borislav Hadzhiev's Convert Seconds to Minutes and Seconds in JavaScript](https://bobbyhadz.com/blog/javascript-convert-seconds-to-minutes-and-seconds#:~:text=To%20convert%20seconds%20to%20minutes,as%20seconds%20as%20mm%3Ass%20.)
+  
+
 * Queue Resources & Guides
   * The Queue System I implemented was heavily inspired by [Cyntac's Switch Discord Music Bot](https://github.com/28Goo/Switch)
   * The Queue data structure I made was based from [JavaScript Tutorial's Queue implementation](https://www.javascripttutorial.net/javascript-queue/) with some new self-made methods.
