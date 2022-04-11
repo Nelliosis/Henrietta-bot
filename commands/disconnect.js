@@ -1,8 +1,9 @@
-// external libraries
+//external
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { getVoiceConnection } = require('@discordjs/voice');
-
-//internal libraries
+const { MessageEmbed } = require('discord.js');
+//internal
+const embedder = require('../handlers/utilities/embedder');
 const queueHandler = require('../handlers/queueSystem');
 
 module.exports = {
@@ -10,23 +11,44 @@ module.exports = {
         .setName('disconnect')
         .setDescription('exits the voice channel and destroys the queue.'),
     async execute(interaction) {
+        //declare user data
+        const user = interaction.user;
+        const guild = interaction.guild.id;
 
         // report to log
         console.log(`[BERRY OPERATION] ${interaction.user.username} invoked /disconnect`);
 
 
         //get necessary data
-        const guild = interaction.guild.id;
-        const connection = getVoiceConnection(guild);
-        const player = connection.state.subscription.player; //copyright 28Goo
-        
+        const embed = new MessageEmbed();
+        const botConnection = getVoiceConnection(guild);
+        const userConnection = interaction.member.voice.channel;
+
+        //check for user connection
+        if (!userConnection) {
+            embedder.UserNotConnected(embed, user);
+            await interaction.reply({ embeds: [embed] });
+            return;
+        }
+
+        //check for bot connection
+        if (!botConnection) {
+            embedder.BotNotConnected(embed, user);
+            await interaction.reply({ embeds: [embed] });
+            return;
+        }
+
+        const player = botConnection.state.subscription.player; //copyright 28Goo        
         queueHandler.clearQueue(guild);
         player.stop();
-        connection.destroy();
+        botConnection.destroy();
 
-        // report to log
+        // report to log & user
         console.log('[BERRY OPERATION] Disconnect successful.');
+        embedder.Disconnect(embed, user);
 
-        //todo embed
+        await interaction.reply({embeds: [embed]});
+
+        
     }
 };
