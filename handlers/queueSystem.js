@@ -13,7 +13,9 @@ function makeQueue(guild, connection) {
 }
 
 function retrieveQueue(guild) {
-    return queueMap.get(guild);
+    const guildQueue = queueMap.get(guild);
+    let queue = guildQueue.tracks.retrieve();
+    return queue;
 }
 
 function toQueue(guild, track) {
