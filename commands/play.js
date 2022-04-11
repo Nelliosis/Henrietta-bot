@@ -5,11 +5,14 @@ const {
     joinVoiceChannel,
     getVoiceConnection,
 } = require('@discordjs/voice');
+const { MessageEmbed } = require('discord.js');
+const { performance } = require('perf_hooks');
 
 //internal
 const queueHandler = require('../handlers/queueSystem');
 const objectifier = require('../handlers/utilities/trackObjectifer');
 const { startPlay } = require('../handlers/startPlay');
+const embedder = require('../handlers/utilities/embedder');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -20,14 +23,23 @@ module.exports = {
                 .setDescription('link, playlist or keywords.')
                 .setRequired(true)),
     async execute(interaction) {
-
-        // check user connection to VC
-        if (!interaction.member.voice.channel) return interaction.reply("Connect to a Voice Channel first.");
+        //declare embed variable
+        const embed = new MessageEmbed();
         
         //declare connection variables
         const guild = interaction.guild.id;
-        const user = interaction.user.username;
-        let connection = getVoiceConnection(interaction.guild.id);
+        const user = interaction.user;
+        let connection = getVoiceConnection(guild);
+
+        // check user connection to VC
+        if (!interaction.member.voice.channel) {
+            embedder.UserNotConnected(embed, user);
+            await interaction.reply({embeds: [embed]});
+            return;
+        }
+
+        //set performance variable
+        const startTime = performance.now();
 
         //if no connection is established, connect
         if (!connection) {
@@ -46,7 +58,7 @@ module.exports = {
         // Get input from option into a variable
         const input = interaction.options.getString('input');
         //report to log
-        console.log(`[BERRY OPERATION] ${user} invoked /play with: ${input}`);
+        console.log(`[BERRY OPERATION] ${user.username} invoked /play with: ${input}`);
 
         //validate input
         let check = await play.validate(input);
@@ -65,8 +77,11 @@ module.exports = {
                 const trackData = objectifier.trackObjectifier(track, 'yt', user);
                 queueHandler.toQueue(guild, trackData);
                 //report to log
+                const endTime = performance.now();
+                const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
-                //todo embed
+                //embed
+                embedder.YTTrack(embed,track,user,performanceTime.toFixed(2));
                 break;}
             case 'sp_track':{
                 //add song to queue
@@ -74,8 +89,11 @@ module.exports = {
                 const trackData = objectifier.trackObjectifier(track, 'sp', user);
                 queueHandler.toQueue(guild, trackData);
                 //report to log
+                const endTime = performance.now();
+                const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
-                //todo embed
+                //embed
+                embedder.SPTrack(embed, track, user, performanceTime.toFixed(2));
                 break;}
             case 'yt_playlist': {
                 //add songs to queue
@@ -86,8 +104,11 @@ module.exports = {
                     queueHandler.toQueue(guild, trackData);
                 }
                 //report to log
+                const endTime = performance.now();
+                const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
-                //todo embed
+                //embed
+                embedder.YTPlaylist(embed,songs,user,performanceTime.toFixed(2));
                 break;}
             case 'sp_playlist': {
                 //add songs to queue
@@ -98,8 +119,25 @@ module.exports = {
                     queueHandler.toQueue(guild, trackData);
                 }
                 //report to log
+                const endTime = performance.now();
+                const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
-                //todo embed
+                //embed
+                embedder.SPPlaylist(embed,songs,user,performanceTime.toFixed(2))
+                break;}
+            case 'sp_album': {
+                const songs = await play.spotify(input);
+                const tracks = await songs.all_tracks();
+                for (const track of tracks) {
+                    const trackData = objectifier.trackObjectifier(track, 'sp', user);
+                    queueHandler.toQueue(guild, trackData);
+                }
+                //report to log
+                const endTime = performance.now();
+                const performanceTime = endTime - startTime;
+                console.log("[BERRY NOTE] Successfully added to queue.");
+                //embed
+                embedder.SPAlbum(embed,songs,user,performanceTime.toFixed(2))
                 break;}
             case 'default': {
                 //todo embed
@@ -113,10 +151,12 @@ module.exports = {
 		if (subscription) {
 			const playerStatus = subscription.player.state.status;
             if (playerStatus === 'playing') {
+                await interaction.reply({embeds: [embed]});
 				return;
 			}
 		}
 
+        await interaction.reply({embeds: [embed]});
         await startPlay(interaction);
         
     }
