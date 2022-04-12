@@ -3,7 +3,7 @@ function trackObjectifier(track, platform, requester) {
     if (platform === 'sp') {
         const minutes = Math.floor(track.durationInSec / 60);
         const seconds = track.durationInSec % 60;
-        const duration = `${minutes}:${seconds}`;
+        const duration = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
         data = {
             track: `${track.name} - ${track.artists[0].name}`,
