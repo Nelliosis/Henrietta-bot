@@ -77,8 +77,11 @@ If you want to add more functionality to the bot, fork the bot and [make it your
 
 ### Built With
 
-* [Node.js](https://nodejs.org/en/)
-* [Discord.js](https://discord.js.org/#/)
+Core functionality:
+* [Node.js v18.8.0](https://nodejs.org/en/)
+* [Discord.js v13.6.0](https://discord.js.org/#/)
+Music player:
+* [Play-dl v1.9.2](https://github.com/play-dl/play-dl)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -135,10 +138,10 @@ As I continue developing my bot, I will update this Roadmap.
     - [ ] Shuffle
     - [x] Enqueue
     - [x] Dequeue
-- [ ] Replies
+- [x] Replies
   - [x] Shows 'Now Playing'
   - [x] Shows metadata [title, length]
-  - [ ] Shows Queue
+  - [x] Shows Queue
 - [ ] Polling
   - [ ] Add options to poll
   - [ ] Delete options to poll
@@ -157,15 +160,15 @@ As I continue developing my bot, I will update this Roadmap.
 - [x] shuffle
 - [x] disconnect
 - [x] Now Playing
-- [ ] queue
-  - [ ] show
+- [x] queue
+  - [x] show
   - [x] clear
 - [ ] poll
 - [ ] schedule
 
 
 ### Future implementations
-if my understanding continues to improve, I can probably implement these somewhere in the future.
+No definite timeline for these implementations.
 - Modify segment of existing queue
 - Enqueue a certain specific amount of tracks
 - Specify which track to enqueue
@@ -225,6 +228,7 @@ I am incredibly thankful to the following resources and people for helping me th
   * [ikatyang's Emoji Cheat Sheet for GitHub Markdown](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
   * [Markdown Guide](https://www.markdownguide.org/basic-syntax/#reference-style-links)
   * [GitHub Markdown Guide](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
+
 * Guides & Documentation
   * [niconiconii's / 3chospirits's Discord Bot YouTube Tutorial Series](https://www.youtube.com/playlist?list=PLOlSzPEdp-bRnCzZX6qnKehutm2nb_tN-)
   * [Discord.js Guide](https://discordjs.guide/#before-you-begin)
@@ -238,8 +242,9 @@ I am incredibly thankful to the following resources and people for helping me th
   * [How to measure time performance in JS on StackOverFlow](https://stackoverflow.com/questions/313893/how-to-measure-time-taken-by-a-function-to-execute)
   * [How to trim performance.now() decimals on StackOverFlow](https://stackoverflow.com/questions/22550791/javascript-and-performance-now-and-trimming-after-the-decimal)
   * [Borislav Hadzhiev's Convert Seconds to Minutes and Seconds in JavaScript](https://bobbyhadz.com/blog/javascript-convert-seconds-to-minutes-and-seconds#:~:text=To%20convert%20seconds%20to%20minutes,as%20seconds%20as%20mm%3Ass%20.)
+  * [Flavio Copes's How to shuffle elements in a JavaScript array](https://flaviocopes.com/how-to-shuffle-array-javascript/)
+  * []()
   
-
 * Queue Resources & Guides
   * The Queue System I implemented was heavily inspired by [Cyntac's Switch Discord Music Bot](https://github.com/28Goo/Switch)
   * The Queue data structure I made was based from [JavaScript Tutorial's Queue implementation](https://www.javascripttutorial.net/javascript-queue/) with some new self-made methods.
