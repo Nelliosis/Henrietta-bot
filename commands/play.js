@@ -61,10 +61,22 @@ module.exports = {
         console.log(`[BERRY OPERATION] ${user.username} invoked /play with: ${input}`);
 
         //validate input
+        try {
+            let check = await play.validate(input);
+        } catch (e) {
+            console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /play with an unsupported platform. Returned.`);
+            embedder.InvalidChoice(embed, user);
+            await interaction.reply({ embeds: [embed] });
+            return;
+        }
+
         let check = await play.validate(input);
-        if (!check) {
-            //todo
-            //embed invalid url
+
+        //if no input received then invalid
+        if (!check){
+            //embed
+            embedder.InvalidChoice(embed, user);
+            await interaction.reply({ embeds: [embed] });
             return;
         }
 
@@ -140,8 +152,10 @@ module.exports = {
                 embedder.SPAlbum(embed,songs,user,performanceTime.toFixed(2))
                 break;}
             case 'default': {
-                //todo embed
-                break;}
+                console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /play with an unsupported platform. Returned.`);
+                embedder.InvalidChoice(embed, user);
+                await interaction.reply({ embeds: [embed] });
+                return;}
         }
 
         // Check if bot is playing. 
