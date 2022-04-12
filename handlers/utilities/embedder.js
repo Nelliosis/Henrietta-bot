@@ -50,9 +50,9 @@ function QueueBig(embed, user) {
         .setColor(hex.note);
 }
 
-function QueuePrinter(embed, currentSong, queueString, page, totalPages, user) {
+function QueuePrinter(embed, currentSong, queueString, page, totalPages, user, guildName) {
     return embed
-        .setTitle('The Queue.')
+        .setTitle(`Current Queue for ${guildName}`)
         .setAuthor({
             name: `${user.username}`,
             iconURL: `${user.displayAvatarURL()}`,
@@ -68,10 +68,14 @@ function QueuePrinter(embed, currentSong, queueString, page, totalPages, user) {
         .setColor(hex.note);
     }
 
-function InvalidPage(embed, total) {
+function InvalidPage(embed, total, user) {
     return embed
         .setTitle('Operation Failed.')
         .setDescription(`Invalid number. There are only ${total} pages of this queue.`)
+        .setAuthor({
+            name: `${user.username}`,
+            iconURL: `${user.displayAvatarURL()}`,
+        })
         .setColor(hex.error);
 }
 
@@ -191,6 +195,17 @@ function UserNotConnected(embed, user) {
         .setColor(hex.error);
 }
 
+function InvalidChoice(embed, user) {
+    return embed
+        .setTitle('Operation Failed.')
+        .setDescription('You may have entered an empty field or the Platform is not supported. Use Spotify or YouTube links.')
+        .setAuthor({
+            name: `${user.username}`,
+            iconURL: `${user.displayAvatarURL()}`,
+        })
+        .setColor(hex.error);
+}
+
 function Skip(embed, user) {
     return embed
         .setTitle('Operation Success.')
@@ -246,6 +261,17 @@ function Disconnect(embed, user) {
         .setColor(hex.default);
 }
 
+function Shuffle(embed, user) {
+        return embed
+        .setTitle('Operation Success.')
+        .setDescription('Queue shuffled.')
+        .setAuthor({
+            name: `${user.username}`,
+            iconURL: `${user.displayAvatarURL()}`,
+        })
+        .setColor(hex.shuffle);
+}
+
 module.exports = {
     NowPlaying,
     QueueEmpty,
@@ -259,9 +285,11 @@ module.exports = {
     SPAlbum,
     BotNotConnected,
     UserNotConnected,
+    InvalidChoice,
     Skip,
     Stop,
     Resume,
     Pause,
     Disconnect,
+    Shuffle,
 }
