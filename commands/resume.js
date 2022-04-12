@@ -26,6 +26,7 @@ module.exports = {
 
         //check for user connection
         if (!userConnection) {
+            console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /resume not connected to any voice channel. Returned.`);
             embedder.UserNotConnected(embed, user);
             await interaction.reply({ embeds: [embed] });
             return;
@@ -33,13 +34,15 @@ module.exports = {
 
         //check for bot connection
         if (!botConnection) {
+            console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /resume with Henrietta not active in any voice channel. Returned.`);
             embedder.BotNotConnected(embed, user);
             await interaction.reply({ embeds: [embed] });
             return;
         }
 
         //check for queue data
-        if (queueHandler.queueIsEmpty(guild)) {
+        if (queueHandler.queueIsEmpty(guild) && !queueHandler.queueCurrent(guild)) {
+            console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /resume with empty queue. Returned.`);
             embedder.QueueEmpty(embed);
             await interaction.reply({ embeds: [embed] });
             return;

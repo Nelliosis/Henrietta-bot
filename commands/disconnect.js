@@ -26,6 +26,7 @@ module.exports = {
 
         //check for user connection
         if (!userConnection) {
+            console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /disconnect not connected to any voice channel. Returned.`);
             embedder.UserNotConnected(embed, user);
             await interaction.reply({ embeds: [embed] });
             return;
@@ -33,6 +34,7 @@ module.exports = {
 
         //check for bot connection
         if (!botConnection) {
+            console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /disconnect with Henrietta not active in any voice channel. Returned.`);
             embedder.BotNotConnected(embed, user);
             await interaction.reply({ embeds: [embed] });
             return;
