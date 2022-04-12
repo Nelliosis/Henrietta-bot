@@ -8,23 +8,34 @@ class Queue {
     constructor() {
         this.head = 0;
         this.tail = 0;
+        this.current = {};
         this.elements = [];
     }
 
     enqueue(element) {
-        this.elements[this.tail] = element;
-        this.tail++;
+        this.elements.push(element);
+        //this.elements[this.tail] = element;
+        //this.tail++;
     }
 
     dequeue() {
-        const item = this.elements[this.head];
-        delete this.elements[this.head];
-        this.head++;
-        return item;
+        this.current = this.elements.shift();
+        //delete this.elements[this.head];
+        //this.head++;
+        return this.current;
     }
 
-    peek() {
+    current() {
+        return this.current;
+    }
+
+    /*peek() {
         return this.elements[this.head];
+    }*/
+
+    shuffle() {
+        this.elements = this.elements.sort(() => Math.random() - 0.5);
+        return;
     }
 
     destroy() {
@@ -40,7 +51,7 @@ class Queue {
     }
 
     get size() {
-        return this.tail - this.head;
+        return this.elements.length;
     }
 
     get isEmpty() {
