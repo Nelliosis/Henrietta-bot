@@ -26,8 +26,7 @@ function toQueue(guild, track) {
 
 function fromQueue(guild) {
     const guildQueue = queueMap.get(guild);
-    guildQueue.tracks.dequeue();
-    return;
+    return guildQueue.tracks.dequeue();
 }
 
 function clearQueue(guild) {
@@ -36,10 +35,22 @@ function clearQueue(guild) {
     return;
 }
 
-function peekAtHead(guild) {
+/*function peekAtHead(guild) {
     const guildQueue = queueMap.get(guild);
     let head = guildQueue.tracks.peek();
     return head;
+}*/
+
+function queueCurrent(guild) {
+    const guildQueue = queueMap.get(guild);
+    let current = guildQueue.tracks.current;
+    return current;
+}
+
+function queueShuffle(guild) {
+    const guildQueue = queueMap.get(guild);
+    guildQueue.tracks.shuffle();
+    return;
 }
 
 function queueIsEmpty(guild) {
@@ -59,7 +70,9 @@ module.exports = {
     toQueue,
     fromQueue,
     clearQueue,
-    peekAtHead,
+    //peekAtHead,
+    queueCurrent,
+    queueShuffle,
     queueIsEmpty,
     queueLength,
 }
