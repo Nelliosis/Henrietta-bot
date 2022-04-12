@@ -22,7 +22,7 @@ module.exports.startPlay = async (interaction) => {
     let connection = getVoiceConnection(interaction.guild.id);
 
     //get track data
-    const queueHead = queueHandler.peekAtHead(guild);
+    const queueHead = queueHandler.fromQueue(guild);
 
     //declare audio variables
     let track, stream;
@@ -35,7 +35,7 @@ module.exports.startPlay = async (interaction) => {
     console.log(`[BERRY NOTE] Queue isempty: ${queueHandler.queueIsEmpty(guild)}`);
     
     // check if queue is empty, if true, return end of queue and reset queue to 0;
-    if (queueHandler.queueIsEmpty(guild)) {
+    if (queueHandler.queueIsEmpty(guild) && !queueHandler.queueCurrent(guild)) {
         console.log('[BERRY NOTE] End of Queue.');
         embedder.QueueEmpty(embed);
         await interaction.channel.send({embeds: [embed]});
@@ -82,8 +82,6 @@ module.exports.startPlay = async (interaction) => {
         if (oldState.status === 'playing' && newState.status === 'idle') {
             //if queue still has data, dequeue, else return.
             if (!queueHandler.queueIsEmpty(guild)) {
-                //dequeue if used skip
-                queueHandler.fromQueue(guild);
                 this.startPlay(interaction);
             }
             else {
