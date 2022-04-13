@@ -79,7 +79,7 @@ If you want to add more functionality to the bot, fork the bot and [make it your
 
 Core functionality:
 * [Node.js v18.8.0](https://nodejs.org/en/)
-* [Discord.js v13.6.0](https://discord.js.org/#/)
+* [Discord.js v13.6.0](https://discord.js.org/#/) \
 Music player:
 * [Play-dl v1.9.2](https://github.com/play-dl/play-dl)
 
