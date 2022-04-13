@@ -23,7 +23,7 @@
     <a href="https://github.com/Nelliosis/Henrietta-bot/wiki"><strong>Explore the Documentation »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Nelliosis/Henrietta-bot/wiki/Music-Commands">Music Commands</a>
+    <a href="https://github.com/Nelliosis/Henrietta-bot/wiki/Music-Commands">Music</a>
     ·
     <a>Polls</a>
     ·
