@@ -262,7 +262,7 @@ function Disconnect(embed, user) {
 }
 
 function Shuffle(embed, user) {
-        return embed
+    return embed
         .setTitle('Operation Success.')
         .setDescription('Queue shuffled.')
         .setAuthor({
@@ -270,6 +270,13 @@ function Shuffle(embed, user) {
             iconURL: `${user.displayAvatarURL()}`,
         })
         .setColor(hex.shuffle);
+}
+
+function Help(embed) {
+    return embed
+        .setTitle('Open this link to find out how Henrietta\'s commands work.')
+        .setDescription(`[Henrietta Wiki: Music Commands](https://github.com/Nelliosis/Henrietta-bot/wiki/Music-Commands)`)
+        .setColor(hex.default);
 }
 
 module.exports = {
@@ -292,4 +299,5 @@ module.exports = {
     Pause,
     Disconnect,
     Shuffle,
+    Help,
 }
