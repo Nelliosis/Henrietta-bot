@@ -69,7 +69,7 @@ She features three main functions:
 * make scheduled events
 
 These are the three main functions I find useful. I will update the bot as I see fit. \
-If you want to add more functionality to the bot, fork the bot and [make it your own](#make-it-your-own). Set up the project by following the [Getting Started Section](#getting-started)
+If you want to add more functionality to the bot, fork the bot and [make it your own](#make-it-your-own). My only request is _do not use Henrietta's logo or name_, brand it as you wish. Set up the project by following the [Getting Started Section](#getting-started)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -133,9 +133,9 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] Play
     - [x] With link
     - [x] With query
-  - [ ] Error handling
-  - [ ] Queue
-    - [ ] Shuffle
+  - [x] Error handling
+  - [x] Queue
+    - [x] Shuffle
     - [x] Enqueue
     - [x] Dequeue
 - [x] Replies
@@ -243,7 +243,6 @@ I am incredibly thankful to the following resources and people for helping me th
   * [How to trim performance.now() decimals on StackOverFlow](https://stackoverflow.com/questions/22550791/javascript-and-performance-now-and-trimming-after-the-decimal)
   * [Borislav Hadzhiev's Convert Seconds to Minutes and Seconds in JavaScript](https://bobbyhadz.com/blog/javascript-convert-seconds-to-minutes-and-seconds#:~:text=To%20convert%20seconds%20to%20minutes,as%20seconds%20as%20mm%3Ass%20.)
   * [Flavio Copes's How to shuffle elements in a JavaScript array](https://flaviocopes.com/how-to-shuffle-array-javascript/)
-  * []()
   
 * Queue Resources & Guides
   * The Queue System I implemented was heavily inspired by [Cyntac's Switch Discord Music Bot](https://github.com/28Goo/Switch)
