@@ -20,9 +20,14 @@
   <p align="center">
     My personal, multi-functional Discord companion bot.
     <br />
-    <a href="https://github.com/Nelliosis/Henrietta-bot/wiki"><strong>Explore the Wiki »</strong></a>
+    <a href="https://github.com/Nelliosis/Henrietta-bot/wiki"><strong>Explore the Documentation »</strong></a>
     <br />
     <br />
+    <a href="https://github.com/Nelliosis/Henrietta-bot/wiki/Music-Commands">Music Commands</a>
+    ·
+    <a>Polls</a>
+    ·
+    <a>Schedule</a>
   </p>
 </div>
 
@@ -143,8 +148,7 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] Shows metadata [title, length]
   - [x] Shows Queue
 - [ ] Polling
-  - [ ] Add options to poll
-  - [ ] Delete options to poll
+
 - [ ] Calendar Scheduling to Google Calendar
   - [ ] Create a calendar event
   - [ ] Send a message to attendee a Google Calendar event invitation
@@ -172,6 +176,8 @@ No definite timeline for these implementations.
 - Modify segment of existing queue
 - Enqueue a certain specific amount of tracks
 - Specify which track to enqueue
+- [ ] Add options to poll
+- [ ] Delete options to poll
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
