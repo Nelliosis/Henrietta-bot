@@ -18,13 +18,13 @@
   "homepage": "https://github.com/Nelliosis/Henrietta-bot#readme",
   "dependencies": {
     "@discordjs/builders": "^0.12.0",
-    "@discordjs/opus": "^0.5.3",
+    "@discordjs/opus": "^0.7.0",
     "@discordjs/rest": "^0.3.0",
     "@discordjs/voice": "^0.8.0",
-    "discord-api-types": "^0.30.0",
+    "discord-api-types": "^0.31.1",
     "discord.js": "^13.6.0",
     "libsodium-wrappers": "^0.7.10",
-    "play-dl": "^1.9.2",
+    "play-dl": "^1.9.4",
     "sodium": "^3.0.2"
   }
 }
