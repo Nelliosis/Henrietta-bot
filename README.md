@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Nelliosis/Henrietta-bot">
-    <img src="assets/logo.png" alt="Logo" />
+    <img src="assets/logo.png" alt="Logo" width="500" height="" />
   </a>
 
 <h3 align="center">Henrietta</h3>
