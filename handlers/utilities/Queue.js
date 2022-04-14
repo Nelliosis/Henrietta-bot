@@ -3,6 +3,9 @@ Copyright © 2022 by JavaScript Tutorial Website. All Right Reserved.
 Modifications made by me:
 - destroy
 - retrieve
+- current
+- peek
+- shuffle
 */
 class Queue {
     constructor() {
