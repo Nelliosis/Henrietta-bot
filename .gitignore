@@ -3,6 +3,7 @@ node_modules
 .env
 config.json
 .data
+.markdownlint.json
 # End personal gitignores
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos

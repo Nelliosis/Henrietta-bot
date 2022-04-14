@@ -7,12 +7,11 @@
 [![GNU GPLv3.0][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/Nelliosis/Henrietta-bot">
-    <img src="assets/logo.png" alt="Logo" width="" height="500">
+    <img src="assets/logo.png" alt="Logo" />
   </a>
 
 <h3 align="center">Henrietta</h3>
@@ -30,8 +29,6 @@
     <a>Schedule</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -59,39 +56,39 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Henrietta is my personal discord bot. I initially made her as a submission to [CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x), an online course by Harvard University. I wanted something that can simplify my day-to-day activities. 
+Henrietta is my personal discord bot. I initially made her as a submission to [CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x), an online course by Harvard University. I wanted something that can simplify my day-to-day activities.
 
 She features three main functions:
+
 * Play, queue, shuffle and search music
 * do polls
 * make scheduled events
 
-These are the three main functions I find useful. I will update the bot as I see fit. \
-If you want to add more functionality to the bot, fork the bot and [make it your own](#make-it-your-own). My only request is _do not use Henrietta's logo or name_, brand it as you wish. Set up the project by following the [Getting Started Section](#getting-started)
+These are the three main functions I find useful. I will update the bot as I see fit.
+
+If you want to add more functionality to the bot, fork the bot and [make it your own](#make-it-your-own).
+
+My only request is _do not use Henrietta's logo or name_, brand it as you wish. Set up the project by following the [Getting Started Section](#getting-started)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
 Core functionality:
+
 * [Node.js v18.8.0](https://nodejs.org/en/)
 * [Discord.js v13.6.0](https://discord.js.org/#/)
 
 Music player:
+
 * [Play-dl v1.9.2](https://github.com/play-dl/play-dl)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -108,8 +105,6 @@ Music player:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
@@ -119,70 +114,71 @@ _For more command examples, please refer to the [Wiki](https://github.com/Nellio
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
 As I continue developing my bot, I will update this Roadmap.
 
-- [x] Basic Functionality
-  - [x] Replies with Hello
-  - [x] Can accept new commands
-  - [x] Receives and parses events
-- [x] Music
-  - [x] Search
-    - [x] With link
-      - [x] By Spotify
-      - [x] By YouTube
-    - [x] With query
-  - [x] Play
-    - [x] With link
-    - [x] With query
-  - [x] Error handling
-  - [x] Queue
-    - [x] Shuffle
-    - [x] Enqueue
-    - [x] Dequeue
-- [x] Replies
-  - [x] Shows 'Now Playing'
-  - [x] Shows metadata [title, length]
-  - [x] Shows Queue
-- [x] Polling
+* [x] Basic Functionality
+  * [x] Replies with Hello
+  * [x] Can accept new commands
+  * [x] Receives and parses events
 
-- [ ] Calendar Scheduling to Google Calendar
-  - [ ] Create a calendar event
-  - [ ] Send a message to attendee a Google Calendar event invitation
+* [x] Music
+  * [x] Search
+    * [x] With link
+      * [x] By Spotify
+      * [x] By YouTube
+    * [x] With query
+  * [x] Play
+    * [x] With link
+    * [x] With query
+  * [x] Error handling
+  * [x] Queue
+    * [x] Shuffle
+    * [x] Enqueue
+    * [x] Dequeue
+
+* [x] Replies
+  * [x] Shows 'Now Playing'
+  * [x] Shows metadata [title, length]
+  * [x] Shows Queue
+
+* [x] Polling
+
+* [ ] Calendar Scheduling to Google Calendar
+  * [ ] Create a calendar event
+  * [ ] Send a message to attendee a Google Calendar event invitation
 
 ### Commands to implement
-- [x] play
-  - [x] by url
-  - [x] by playlist
-  - [x] by query
-- [x] pause
-- [x] resume
-- [x] skip
-- [x] shuffle
-- [x] disconnect
-- [x] Now Playing
-- [x] queue
-  - [x] show
-  - [x] clear
-- [x] poll
-- [ ] schedule
 
+* [x] play
+  * [x] by url
+  * [x] by playlist
+  * [x] by query
+* [x] pause
+* [x] resume
+* [x] skip
+* [x] shuffle
+* [x] disconnect
+* [x] Now Playing
+* [x] queue
+  * [x] show
+  * [x] clear
+* [x] poll
+* [ ] schedule
 
 ### Future implementations
+
 No definite timeline for these implementations.
-- Modify segment of existing queue
-- Enqueue a certain specific amount of tracks
-- Specify which track to enqueue
-- Add options to poll
-- Delete options to poll
+
+* Modify segment of existing queue
+* Enqueue a certain specific amount of tracks
+* Specify which track to enqueue
+* Add options to poll
+* Delete options to poll
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Make It Your Own
@@ -191,16 +187,21 @@ If you want to:
 
 1. add your own functionality
 2. modify the code
-3. tinker with the bot 
+3. tinker with the bot
 
-then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own. Use the [Getting Started](#getting-started) section to get you up and running with the bot's development. **_Though please do remember to credit my work._**
+then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own.
 
-### Note:
-The **artwork and logo are my personal property**, thus their images _cannot_ be used in your forks. I recommend branding the bot as something different altogether.
+Use the [Getting Started](#getting-started) section to get you up and running with the bot's development.
+
+**_Though please do remember to credit my work._**
+
+### Note
+
+The **artwork and logo are my personal property**, thus their images _cannot_ be used in your forks.
+
+I recommend branding the bot as something different altogether.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
@@ -208,8 +209,6 @@ The **artwork and logo are my personal property**, thus their images _cannot_ be
 Distributed under version 3.0 of the GNU General Public License. Visit the [license](https://github.com/Nelliosis/Henrietta-bot/blob/main/LICENSE) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -219,8 +218,6 @@ Reach me through my [LinkedIn](https://linkedin.com/in/jcapawing) or email me di
 Project Link: [https://github.com/Nelliosis/Henrietta-bot](https://github.com/Nelliosis/Henrietta-bot)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -268,8 +265,6 @@ I am incredibly thankful to the following resources and people for helping me th
   * [Toptal's Gitignore.io](https://www.toptal.com/developers/gitignore)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
