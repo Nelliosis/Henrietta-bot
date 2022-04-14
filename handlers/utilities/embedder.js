@@ -279,6 +279,17 @@ function Help(embed) {
         .setColor(hex.default);
 }
 
+function Poll(embed, query, user) {
+    return embed
+        .setTitle(`${query}`)
+        .setDescription(`Vote with the following emoji:\n
+        :thumbsup: -> Yes\n
+        :person_shrugging: -> Maybe\n
+        :thumbsdown: -> No\n
+        Poll sequestered by: <@${user.id}>.`)
+        .setColor(hex.default);
+}
+
 module.exports = {
     NowPlaying,
     QueueEmpty,
@@ -300,4 +311,5 @@ module.exports = {
     Disconnect,
     Shuffle,
     Help,
+    Poll,
 }
