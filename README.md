@@ -84,7 +84,8 @@ If you want to add more functionality to the bot, fork the bot and [make it your
 
 Core functionality:
 * [Node.js v18.8.0](https://nodejs.org/en/)
-* [Discord.js v13.6.0](https://discord.js.org/#/) \
+* [Discord.js v13.6.0](https://discord.js.org/#/)
+
 Music player:
 * [Play-dl v1.9.2](https://github.com/play-dl/play-dl)
 
@@ -147,7 +148,7 @@ As I continue developing my bot, I will update this Roadmap.
   - [x] Shows 'Now Playing'
   - [x] Shows metadata [title, length]
   - [x] Shows Queue
-- [ ] Polling
+- [x] Polling
 
 - [ ] Calendar Scheduling to Google Calendar
   - [ ] Create a calendar event
@@ -167,7 +168,7 @@ As I continue developing my bot, I will update this Roadmap.
 - [x] queue
   - [x] show
   - [x] clear
-- [ ] poll
+- [x] poll
 - [ ] schedule
 
 
@@ -176,8 +177,8 @@ No definite timeline for these implementations.
 - Modify segment of existing queue
 - Enqueue a certain specific amount of tracks
 - Specify which track to enqueue
-- [ ] Add options to poll
-- [ ] Delete options to poll
+- Add options to poll
+- Delete options to poll
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -249,10 +250,12 @@ I am incredibly thankful to the following resources and people for helping me th
   * [How to trim performance.now() decimals on StackOverFlow](https://stackoverflow.com/questions/22550791/javascript-and-performance-now-and-trimming-after-the-decimal)
   * [Borislav Hadzhiev's Convert Seconds to Minutes and Seconds in JavaScript](https://bobbyhadz.com/blog/javascript-convert-seconds-to-minutes-and-seconds#:~:text=To%20convert%20seconds%20to%20minutes,as%20seconds%20as%20mm%3Ass%20.)
   * [Flavio Copes's How to shuffle elements in a JavaScript array](https://flaviocopes.com/how-to-shuffle-array-javascript/)
+  * [Emojipedia](https://emojipedia.org/)
   
 * Queue Resources & Guides
   * The Queue System I implemented was heavily inspired by [Cyntac's Switch Discord Music Bot](https://github.com/28Goo/Switch)
   * The Queue data structure I made was based from [JavaScript Tutorial's Queue implementation](https://www.javascripttutorial.net/javascript-queue/) with some new self-made methods.
+  * The logic of how my Queue shows into the chat is an implementation from [niconiconii's / 3chospirits's How to Make Discord Music Bot YouTube video.](https://www.youtube.com/watch?v=fN29HIaoHLU)
   * [Ondrej Polesny's JavaScript Array of Objects Tutorial](https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/)
   * [Amanda Fawcett's JavaScript Map and Set tutorial: How to use new built-in classes](https://www.educative.io/blog/javascript-map-set)
   * [Declaring Multiple module.exports Functions on StackOverFlow](https://stackoverflow.com/questions/16631064/declare-multiple-module-exports-in-node-js)
