@@ -1,10 +1,8 @@
 //external
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { getVoiceConnection } = require('@discordjs/voice');
 const { MessageEmbed } = require('discord.js');
 //internal
 const embedder = require('../handlers/utilities/embedder');
-const queueHandler = require('../handlers/queueSystem');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,7 +14,7 @@ module.exports = {
         const user = interaction.user;
 
         // report to log
-        console.log('[BERRY OPERATION] /help was invoked.');
+        console.log(`[BERRY OPERATION] ${user.username} invoked /help.`);
 
         //get necessary data
         const embed = new MessageEmbed();
