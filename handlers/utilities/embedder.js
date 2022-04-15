@@ -99,24 +99,44 @@ function YTTrack(embed, track, user, time) {
 
 
 function YTPlaylist(embed, playlist, user, time) {
-    return embed
-        .setColor(hex.default)
-        .setTitle('YouTube playlist found.')
-        .setDescription('Operation Successful.')
-        .setAuthor({
-            name: `${user.username}`,
-            iconURL: `${user.displayAvatarURL()}`,
-        })
-        .addFields(
-            { name: 'Title:', value: `[${playlist.title}](${playlist.url})`, inline: false },
-            { name: 'Owner:', value: `[${playlist.channel.name}](${playlist.channel.url})`, inline: true },
-            { name: 'Total Tracks:', value: `${playlist.videoCount}`, inline: true },
-            { name: 'Type:', value: 'YouTube Playlist', inline: true },
-        )
-        .setImage(playlist.thumbnail.url)
-        .setFooter({
-            text: `Query parsed in ${time} ms.`,
-        });
+    try {
+        return embed
+            .setColor(hex.default)
+            .setTitle('YouTube playlist found.')
+            .setDescription('Operation Successful.')
+            .setAuthor({
+                name: `${user.username}`,
+                iconURL: `${user.displayAvatarURL()}`,
+            })
+            .addFields(
+                { name: 'Title:', value: `[${playlist.title}](${playlist.url})`, inline: false },
+                { name: 'Owner:', value: `[${playlist.channel.name}](${playlist.channel.url})`, inline: true },
+                { name: 'Total Tracks:', value: `${playlist.videoCount}`, inline: true },
+                { name: 'Type:', value: 'YouTube Playlist', inline: true },
+            )
+            .setImage(playlist.thumbnail.url)
+            .setFooter({
+                text: `Query parsed in ${time} ms.`,
+            });
+    } catch (e) {
+        return embed
+            .setColor(hex.default)
+            .setTitle('YouTube playlist found.')
+            .setDescription('Operation Successful. However, some of the metadata is incomplete.')
+            .setAuthor({
+                name: `${user.username}`,
+                iconURL: `${user.displayAvatarURL()}`,
+            })
+            .addFields(
+                { name: 'Title:', value: `[${playlist.title}](${playlist.url})`, inline: false },
+                { name: 'Owner:', value: `[${playlist.channel.name}](${playlist.channel.url})`, inline: true },
+                { name: 'Total Tracks:', value: `${playlist.videoCount}`, inline: true },
+                { name: 'Type:', value: 'YouTube Playlist', inline: true },
+            )
+            .setFooter({
+                text: `Query parsed in ${time} ms.`,
+            });
+    }
 }
 
 function SPTrack(embed, track, user, time) {
