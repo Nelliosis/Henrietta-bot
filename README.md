@@ -24,9 +24,9 @@
     <br />
     <a href="https://github.com/Nelliosis/Henrietta-bot/wiki/Music-Commands">Music</a>
     ·
-    <a>Polls</a>
+    <a href="https://github.com/Nelliosis/Henrietta-bot/wiki/Poll-&-Schedule#poll">Polls</a>
     ·
-    <a>Schedule</a>
+    <a href="https://github.com/Nelliosis/Henrietta-bot/wiki/Poll-&-Schedule#schedule">Schedule</a>
   </p>
 </div>
 
@@ -117,66 +117,7 @@ _For more command examples, please refer to the [Wiki](https://github.com/Nellio
 <!-- ROADMAP -->
 ## Roadmap
 
-As I continue developing my bot, I will update this Roadmap.
-
-* [x] Basic Functionality
-  * [x] Replies with Hello
-  * [x] Can accept new commands
-  * [x] Receives and parses events
-
-* [x] Music
-  * [x] Search
-    * [x] With link
-      * [x] By Spotify
-      * [x] By YouTube
-    * [x] With query
-  * [x] Play
-    * [x] With link
-    * [x] With query
-  * [x] Error handling
-  * [x] Queue
-    * [x] Shuffle
-    * [x] Enqueue
-    * [x] Dequeue
-
-* [x] Replies
-  * [x] Shows 'Now Playing'
-  * [x] Shows metadata [title, length]
-  * [x] Shows Queue
-
-* [x] Polling
-
-* [ ] Calendar Scheduling to Google Calendar
-  * [ ] Create a calendar event
-  * [ ] Send a message to attendee a Google Calendar event invitation
-
-### Commands to implement
-
-* [x] play
-  * [x] by url
-  * [x] by playlist
-  * [x] by query
-* [x] pause
-* [x] resume
-* [x] skip
-* [x] shuffle
-* [x] disconnect
-* [x] Now Playing
-* [x] queue
-  * [x] show
-  * [x] clear
-* [x] poll
-* [ ] schedule
-
-### Future implementations
-
-No definite timeline for these implementations.
-
-* Modify segment of existing queue
-* Enqueue a certain specific amount of tracks
-* Specify which track to enqueue
-* Add options to poll
-* Delete options to poll
+See my roadmap, as well as the commands implemented, further improvements and TODO in the [Roadmap](https://github.com/Nelliosis/Henrietta-bot/wiki/Roadmap) section of the [Wiki](https://github.com/Nelliosis/Henrietta-bot/wiki)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
