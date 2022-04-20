@@ -59,21 +59,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Henrietta is my personal discord bot. I initially made her as a submission to [CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x), an online course by Harvard University. I wanted something that can simplify my day-to-day activities.
+Henrietta is my personal discord companion bot. I initially made her as a submission to [CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x), an online course by Harvard University. I wanted something that can simplify my day-to-day activities.
 
 She features three main functions:
 
 * Play, queue, shuffle and search music
-* do polls
+* do simple polls
 * make scheduled events
 
 These are the three main functions I find useful. I will update the bot as I see fit.
 
+Henrietta is not, and never will be mean't for deployment at scale. I fully intend to self-host and keep it in my personal servers.
+
+If you wish to set up the bot for self-hosting as well, follow the [Getting Started Section](#getting-started).
+
 If you want to add more functionality to the bot, fork the bot and [make it your own](#make-it-your-own).
 
-My only request is _do not use Henrietta's logo or name_, brand it as you wish. Set up the project by following the [Getting Started Section](#getting-started)
+My only request is *__do not use Henrietta's logo or name__*, brand it as you wish.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -81,7 +83,7 @@ My only request is _do not use Henrietta's logo or name_, brand it as you wish. 
 
 Core functionality:
 
-* [Node.js v18.8.0](https://nodejs.org/en/)
+* [Node.js v17.9.0](https://nodejs.org/en/)
 * [Discord.js v13.6.0](https://discord.js.org/#/)
 
 Music player:
@@ -93,24 +95,233 @@ Music player:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-(_under construction_)
+In order to deploy and use Henrietta on your local machine, follow this section.
 
 ### Prerequisites
 
-(_under construction_)
+* __Node.js__
+
+For Windows and Mac, install node.js from their [website.](https://nodejs.org/en/)
+
+For Linux, consult [this page](https://nodejs.org/en/download/package-manager/) for installing on your individual distro.
+
+For Homebrew, input this command into your terminal:
+
+```
+brew install node
+```
+
+If you've successfully installed node, you can check by entering this into the terminal or command prompt:
+
+```
+node -v
+```
+
+To which the output should be
+
+```
+v17.9.0
+```
+
+or similar output.
+
+It is recommended to install node v17.9.0 or higher as this is the base with which Henrietta was built.
 
 ### Installation
 
-(_under construction_)
+In order to use Henrietta, follow these steps:
+
+#### 1. Clone the repository
+
+If you have Git installed, use this command
+
+```bash
+git clone https://github.com/Nelliosis/Henrietta-bot.git
+```
+
+If you do not have Git installed, go to the top of this page, look for the green button named `code` and press `Download ZIP`.
+
+#### 2. Create a `config.json` file
+
+If you cloned Henrietta by Git, cd into the bot's main directory and create a file named `config.json`
+
+If you have downloaded Henrietta by ZIP. Unzip the file and go into the folder. Inside the folder, create a file called `config.json`
+
+config.json should have the following template:
+
+```json
+{
+  token: 
+}
+```
+
+>*__Critical Note:__* what you are about to store in config.json is your Bot's Token. __DO NOT__ reveal, show nor give the token to anyone else.
+>
+>__IF your token leaks, a malicious element could take control of your Bot and mess up your account.__
+
+Save the file and proceed to the next step.
+
+#### 3. Create a Discord Application and insert the Token into `config.json`
+
+Follow the Discord.js guide on [this link.](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot) to create your bot's application.
+
+After copying the token, paste it into the `config.json` file. It should now appear as follows:
+
+```json
+{
+  token: long-string-of-numbers-and-letters-here
+}
+```
+
+Save the file.
+
+Invite the bot to your server by following this [Discord js Guide.](https://discordjs.guide/preparations/adding-your-bot-to-servers.html#bot-invite-links)
+
+After that, move onto the next.
+
+#### 4. Create a Spotify Application
+
+Open the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/login) and login using your account.
+
+>If you don't want to use your personal account, you can create a new Spotify account under your Bot's name, and log into the Developer Dashboard using that name.
+
+Next, select the `Create an App` button. Give it a name and short description of your liking.
+
+After creating the app, look for your `Client ID`, copy it and paste it in NotePad or some note taking application. *DO NOT SAVE*.
+
+We will only need it once. Label it properly as well.
+
+After copying your `Client ID`, click on `SHOW CLIENT SECRET` and copy the string into NotePad or your preferred note taking app.
+
+Your notes should look like the following:
+
+```
+Client ID: long-string-here
+Client Secret: long-string-here
+```
+
+Next, open the `Edit Settings` button in the App. In the `Redirect URLS` insert the following:
+
+```
+http://127.0.0.1/index.html
+```
+
+The following link is a dummy link that points to nothing. But it is critical for later when we are going to run the authorization program.
+
+Hit save and proceed to the next.
+
+#### 5. Run the Authorization Program for Spotify
+
+Open your terminal or command prompt and go into the main directory/Folder of the Bot.
+
+Once in, enter the following command:
+
+```
+node authorization.js
+```
+
+You will then be asked the following questions:
+
+> Do you want to save data in a file?
+
+Reply `Yes`. Press enter.
+
+> Choose your Service:
+
+Reply `sp` Press enter.
+
+> Start by entering your Client ID:
+
+Reply by pasting `that-long-string` you copied into your notepad. Press enter.
+
+> Now your Client Secret:
+
+Reply by pasting the client secret `long-string-thing` you copied into your notepad. Press enter.
+
+> Enter your Redirect URL now:
+
+Reply by pasting the link we pasted into Spotify earlier: `http://127.0.0.1/index.html`. Press enter.
+
+> Enter your region code:
+
+Reply by following the wiki page and finding your country's 2-letter country code. Press enter.
+
+> Paste the url which you just copied:
+
+The program will then instruct you to follow a link it has provided. Copy and paste it in the browser and press enter.
+
+Spotify will now ask you to authorize your Bot to view your Account. Press `Agree`.
+
+You will be led to a broken page. This is normal. Copy the link in the browser's search bar and paste it back into the program.
+
+#### 6. Run the Authorization Program for YouTube
+
+Open your terminal or command prompt and go into the main directory/Folder of the Bot.
+
+Once in, enter the following command:
+
+```
+node authorization.js
+```
+
+You will then be asked the following questions:
+
+> Do you want to save data in a file?
+
+Reply `Yes`. Press enter.
+
+> Choose your Service:
+
+Reply `yo` Press enter.
+
+> Cookies:
+
+To retrieve your cookie, first, open your browser's Developer Tools:
+
+Mac: `Option + ⌘ + J`,
+Everything else: `Shift + CTRL + J`,
+
+Open the `Network` tab. Then go to any YouTube video link. If you can't be bothered, then open this: <https://www.youtube.com/watch?v=dQw4w9WgXcQ>
+
+In your network tab, scroll to the very top and click the __First Request__. The first request is named `watch?=dQw4w9WgXcQ` or any ID if you used a different video.
+
+After clicking the __First Request__, a new tab will appear. Scroll down until you reach `Request Headers`. Find the `Cookie` parameter and copy the entire string of text into the Authorization program.
+
+### Congratulations
+
+You've successfully set up Henrietta.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-(_under construction_)
+This section will discuss how to turn the bot on and off. As well as provide links to the various commands.
 
-_For more command examples, please refer to the [Wiki](https://github.com/Nelliosis/Henrietta-bot/wiki)_
+Make sure you went through the [prerequisites](#prerequisites) and [installation](#installation) sections first. Otherwise, the commands in this section will not work.
+
+### Bringing the Bot Online
+
+To bring the bot online, open a terminal/command prompt and navigate to the Bot's main directory. Then run this command:
+
+```
+node .
+```
+
+The bot will now appear online.
+
+### Shutting down the Bot
+
+Close the terminal/command prompt window that the process is running on or use the following shortcuts in the terminal window:
+
+Mac: `OPTION + C`
+Everything else: `CTRL + C`
+
+### Commands
+
+In order to learn how to use Henrietta's different music commands, visit [this wiki link](https://github.com/Nelliosis/Henrietta-bot/wiki/Music-Commands).
+
+To learn how to use her poll and scheduling commands, visit [here](https://github.com/Nelliosis/Henrietta-bot/wiki/Poll-&-Schedule).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,15 +341,15 @@ If you want to:
 2. modify the code
 3. tinker with the bot
 
-then by all means _**fork**_ the project. You need not to contribute back to this main project. You are free to make it your own.
+then by all means *__fork__* the project. You need not to contribute back to this main project. You are free to make it your own.
 
 Use the [Getting Started](#getting-started) section to get you up and running with the bot's development.
 
-**_Though please do remember to credit my work._**
+*__Though please do remember to credit my work.__*
 
 ### Note
 
-The **artwork and logo are my personal property**, thus their images _cannot_ be used in your forks.
+The __artwork and logo are my personal property__, thus their images *cannot* be used in your forks.
 
 I recommend branding the bot as something different altogether.
 
