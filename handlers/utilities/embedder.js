@@ -310,6 +310,13 @@ function Poll(embed, query, user) {
         .setColor(hex.default);
 }
 
+function Schedule(embed) {
+    return embed
+        .setTitle('Event request received.')
+        .setDescription('Open this link to get started: https://calendar.google.com/calendar/u/0/r/eventedit')
+        .setColor(hex.default);
+}
+
 module.exports = {
     NowPlaying,
     QueueEmpty,
@@ -332,4 +339,5 @@ module.exports = {
     Shuffle,
     Help,
     Poll,
+    Schedule,
 }

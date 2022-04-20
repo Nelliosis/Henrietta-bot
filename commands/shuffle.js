@@ -51,7 +51,7 @@ module.exports = {
         //shuffle
         queueHandler.queueShuffle(guild);
         
-        //embed now playing, and report to log & user
+        //embed and report to log & user
         embedder.Shuffle(embed, user);
         console.log('[BERRY OPERATION] shuffle successful.');
         await interaction.reply({embeds: [embed]});
