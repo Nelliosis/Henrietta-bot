@@ -429,4 +429,4 @@ I am incredibly thankful to the following resources and people for helping me th
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jcapawing
 [product-screenshot]: images/screenshot.png
-[status-shield]: https://img.shields.io/badge/Status-Under%20Development-orange?style=for-the-badge
+[status-shield]: https://img.shields.io/badge/Status-In%20active%20development-green?style=for-the-badge
