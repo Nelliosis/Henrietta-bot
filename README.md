@@ -149,7 +149,7 @@ If you have downloaded Henrietta by ZIP. Unzip the file and go into the folder. 
 
 config.json should have the following template:
 
-```json
+```
 {
   token: 
 }
@@ -167,7 +167,7 @@ Follow the Discord.js guide on [this link.](https://discordjs.guide/preparations
 
 After copying the token, paste it into the `config.json` file. It should now appear as follows:
 
-```json
+```
 {
   token: long-string-of-numbers-and-letters-here
 }
