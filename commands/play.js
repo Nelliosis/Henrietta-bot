@@ -141,6 +141,8 @@ module.exports = {
                 const songs = await play.spotify(input);
                 const tracks = await songs.all_tracks();
                 for (const track of tracks) {
+                    track.album = songs;
+                    track.thumbnail = songs.thumbnail;
                     const trackData = objectifier.trackObjectifier(track, 'sp', user);
                     queueHandler.toQueue(guild, trackData);
                 }
