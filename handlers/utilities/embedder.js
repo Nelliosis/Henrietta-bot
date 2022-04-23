@@ -189,7 +189,7 @@ function SPAlbum(embed, album, user, time) {
         })
         .addFields(
             { name: 'Title:', value: `[${album.name}](${album.url})`, inline: false },
-            { name: 'Artist:', value: `[${album.artists[0].name}](${aalbum.artists[0].url})`, inline: true },
+            { name: 'Artist:', value: `[${album.artists[0].name}](${album.artists[0].url})`, inline: true },
             { name: 'Total Tracks:', value: `${album.total_tracks}`, inline: true },
             { name: 'Type:', value: 'Spotify Album', inline: true },
         )
