@@ -68,6 +68,17 @@ function QueuePrinter(embed, currentSong, queueString, page, totalPages, user, g
         .setColor(hex.note);
     }
 
+function QueueClearer(embed, user) {
+    return embed
+        .setTitle('Queue cleared.')
+        .setDescription('Operation Successful.')
+        .setAuthor({
+            name: `${user.username}`,
+            iconURL: `${user.displayAvatarURL()}`,
+        })
+        .setColor(hex.stopLoop);
+}
+
 function InvalidPage(embed, total, user) {
     return embed
         .setTitle('Operation Failed.')
@@ -322,6 +333,7 @@ module.exports = {
     QueueEmpty,
     QueueBig,
     QueuePrinter,
+    QueueClearer,
     InvalidPage,
     YTTrack,
     YTPlaylist,
