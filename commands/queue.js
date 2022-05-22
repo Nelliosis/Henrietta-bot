@@ -14,7 +14,11 @@ module.exports = {
         .addNumberOption(option =>
             option.setName('page')
                 .setDescription('Number')
-                .setMinValue(1)),
+                .setMinValue(1))
+        .addBooleanOption(option =>
+            option.setName('clear')
+                .setDescription('Clears the Queue without stopping the current track.')
+                .setRequired(false)),
     async execute(interaction) {
         
         //declare connection variables
@@ -61,9 +65,23 @@ module.exports = {
         const totalPages = Math.ceil(queue.length / 10) || 1;
         const page = (interaction.options.getNumber("page") || 1) - 1;
 
+        // if a page entered is larger than the total pages, return.
         if (page >= totalPages) {
             console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /queue with page that is greater than the queue length. Returned.`);
             embedder.InvalidPage(embed, totalPages, user);
+            await interaction.reply({ embeds: [embed] });
+            return;
+        }
+
+        const clear = interaction.options.getBoolean("clear");
+        if (clear === true) {
+            console.log(`[BERRY OPERATION] ${user.username} invoked /queue with option \'clear\'`);
+            
+            //clear the queue
+            queueHandler.clearQueue(guild);
+
+            //notify user and return
+            embedder.QueueClearer(embed, user);
             await interaction.reply({ embeds: [embed] });
             return;
         }
