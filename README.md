@@ -287,6 +287,16 @@ In your network tab, scroll to the very top and click the __First Request__. The
 
 After clicking the __First Request__, a new tab will appear. Scroll down until you reach `Request Headers`. Find the `Cookie` parameter and copy the entire string of text into the Authorization program.
 
+#### 7. Install the node modules
+
+open a terminal or command prompt window and enter the bot's base folder, then run the following:
+
+```
+npm install
+```
+
+The terminal will log everything that is happening. Wait for it to finish.
+
 ### Congratulations
 
 You've successfully set up Henrietta.
