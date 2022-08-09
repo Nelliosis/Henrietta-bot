@@ -83,12 +83,12 @@ My only request is *__do not use Henrietta's logo or name__*, brand it as you wi
 
 Core functionality:
 
-* [Node.js v17.9.0](https://nodejs.org/en/)
-* [Discord.js v13.6.0](https://discord.js.org/#/)
+* [Node.js v18.7.0](https://nodejs.org/en/)
+* [Discord.js v14.1.2](https://discord.js.org/#/)
 
 Music player:
 
-* [Play-dl v1.9.2](https://github.com/play-dl/play-dl)
+* [Play-dl v1.9.5](https://github.com/play-dl/play-dl)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -125,7 +125,7 @@ v17.9.0
 
 or similar output.
 
-It is recommended to install node v17.9.0 or higher as this is the base with which Henrietta was built.
+It is recommended to install node v18 or higher as this is the base with which Henrietta was built.
 
 ### Installation
 
