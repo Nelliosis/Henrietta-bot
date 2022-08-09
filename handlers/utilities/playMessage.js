@@ -1,11 +1,11 @@
 const { getVoiceConnection, AudioPlayerStatus } = require('@discordjs/voice');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const embedder = require('./embedder');
 
 //playMessage module made by 28Goo/Cyntacs. All rights reserved.
 module.exports = {
 	playMessage: async (interaction, queueHead) => {
-		const embed = new MessageEmbed;
+		const embed = new EmbedBuilder();
 		embedder.NowPlaying(embed, queueHead);
 		const msg = await interaction.channel.send({ embeds: [embed] });
 

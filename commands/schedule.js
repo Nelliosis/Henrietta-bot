@@ -1,7 +1,7 @@
 //external
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { getVoiceConnection } = require('@discordjs/voice');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 //internal
 const embedder = require('../handlers/utilities/embedder');
 const queueHandler = require('../handlers/queueSystem');
@@ -20,7 +20,7 @@ module.exports = {
         console.log(`[BERRY OPERATION] ${interaction.user.username} invoked /schedule`);
         
         //get necessary data
-        const embed = new MessageEmbed();
+        const embed = new EmbedBuilder();
         
         //send link, embed and report to log & user
         embedder.Schedule(embed);

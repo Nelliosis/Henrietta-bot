@@ -1,7 +1,7 @@
 //external
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { getVoiceConnection } = require('@discordjs/voice');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 //internal
 const queueHandler = require('../handlers/queueSystem');
@@ -25,7 +25,7 @@ module.exports = {
         const guild = interaction.guild.id;
         const guildname = interaction.guild.name;
         const user = interaction.user;
-        const embed = new MessageEmbed();
+        const embed = new EmbedBuilder();
         const botConnection = getVoiceConnection(guild);
         const userConnection = interaction.member.voice.channel;
 

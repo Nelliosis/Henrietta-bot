@@ -1,6 +1,6 @@
 //external
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 //internal
 const embedder = require('../handlers/utilities/embedder');
 
@@ -17,7 +17,7 @@ module.exports = {
         console.log(`[BERRY OPERATION] ${user.username} invoked /help.`);
 
         //get necessary data
-        const embed = new MessageEmbed();
+        const embed = new EmbedBuilder();
         
         // report to log & user
         console.log('[BERRY OPERATION] Help printed.');

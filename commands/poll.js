@@ -1,6 +1,6 @@
 //external
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 //internal
 const embedder = require('../handlers/utilities/embedder');
 
@@ -15,7 +15,7 @@ module.exports = {
     async execute(interaction) {
 
         //declare variables
-        const embed = new MessageEmbed();
+        const embed = new EmbedBuilder();
         const query = interaction.options.getString('query');
         const user = interaction.user;
 

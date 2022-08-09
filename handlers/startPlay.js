@@ -8,7 +8,7 @@ const {
 	createAudioResource,
     getVoiceConnection,
 } = require('@discordjs/voice');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 //internal libraries
 const queueHandler = require('./queueSystem');
@@ -28,7 +28,7 @@ module.exports.startPlay = async (interaction) => {
     let track, stream;
 
     //declare embed
-    const embed = new MessageEmbed();
+    const embed = new EmbedBuilder();
 
     //report to log of queue length
     console.log(`[BERRY NOTE] Queue length: ${queueHandler.queueLength(guild)}`);

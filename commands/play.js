@@ -5,7 +5,7 @@ const {
     joinVoiceChannel,
     getVoiceConnection,
 } = require('@discordjs/voice');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { performance } = require('perf_hooks');
 
 //internal
@@ -24,7 +24,7 @@ module.exports = {
                 .setRequired(true)),
     async execute(interaction) {
         //declare embed variable
-        const embed = new MessageEmbed();
+        const embed = new EmbedBuilder();
         
         //declare connection variables
         const guild = interaction.guild.id;
