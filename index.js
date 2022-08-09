@@ -1,26 +1,32 @@
 // external libraries
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, IntentsBitField } = require('discord.js');
 const { token } = require('./config.json');
 
-// Create a new client instance
-const client = new Client({
-    intents: [
-        Intents.FLAGS.GUILDS,                   // server administrative functions
-        Intents.FLAGS.GUILD_MESSAGES,           // allows to send and receive messages
-        Intents.FLAGS.GUILD_VOICE_STATES,       // allows voice channel entry
-        Intents.FLAGS.GUILD_MESSAGE_REACTIONS,  // allows reactions
-        Intents.FLAGS.DIRECT_MESSAGES           // allows bot to DM users
-    ]
-});
+// client intents declaration
+const myIntents = new IntentsBitField();
+myIntents.add(
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildVoiceStates,
+    IntentsBitField.Flags.GuildMessageReactions,
+    IntentsBitField.Flags.DirectMessages,
 
-//prepare commands directory to be read
+)
+const client = new Client({ intents: [myIntents], });
+
+// prepare and read commands
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+	const filePath = path.join(commandsPath, file);
+	const command = require(filePath);
+	client.commands.set(command.data.name, command);
+}
 
-// prepare and read event directory
+// prepare and read events
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
@@ -34,18 +40,10 @@ for (const file of eventFiles) {
     }
 }
 
-// prepare and read commands directory
-for (const file of commandFiles) {
-    const filePath = path.join(commandsPath, file);
-    const command = require(filePath);
-    client.commands.set(command.data.name, command);
-}
-
-
 // call commands on interaction
 client.on('interactionCreate', async interaction => {
     // if not a command, ignore
-    if (!interaction.isCommand()) return;
+    if (!interaction.isChatInputCommand()) return;
 
     //collect commands from the collection
     const command = client.commands.get(interaction.commandName);
@@ -61,8 +59,6 @@ client.on('interactionCreate', async interaction => {
         await interaction.reply({ content: '[BERRY FATAL]: Error during execution. See console log for details.', ephemeral: false });
     }
 });
-
-
 
 // Login to Discord
 client.login(token);
