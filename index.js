@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, IntentsBitField } = require('discord.js');
-const { token } = require('./config.json');
+require('dotenv').config()
 
 // client intents declaration
 const myIntents = new IntentsBitField();
@@ -21,9 +21,9 @@ client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-	const filePath = path.join(commandsPath, file);
-	const command = require(filePath);
-	client.commands.set(command.data.name, command);
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath);
+    client.commands.set(command.data.name, command);
 }
 
 // prepare and read events
@@ -61,4 +61,4 @@ client.on('interactionCreate', async interaction => {
 });
 
 // Login to Discord
-client.login(token);
+client.login(process.env.token);
