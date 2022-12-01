@@ -27,5 +27,8 @@
     "libsodium-wrappers": "^0.7.10",
     "play-dl": "^1.9.5",
     "sodium": "^3.0.2"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }
