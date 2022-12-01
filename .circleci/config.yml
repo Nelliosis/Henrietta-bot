@@ -13,9 +13,9 @@ jobs:
       - run:
           name: "install dependencies"
           command: |
-            apt install libtool
-            apt install make
-            apt install g++
+            sudo apt install libtool
+            sudo apt install make
+            sudo apt install g++
       - run:
           name: "install"
           command: "npm install"
