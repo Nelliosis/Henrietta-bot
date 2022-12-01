@@ -11,6 +11,12 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "install dependents"
+          command: |
+            apt install libtool
+            apt install make
+            apt install g++
+      - run:
           name: "install"
           command: "npm install"
       - persist_to_workspace:
