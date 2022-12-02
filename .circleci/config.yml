@@ -13,7 +13,7 @@ jobs:
       - run:
           name: "install dependencies"
           command: |
-            sudo add-apt-repository --yes ppa:jonathonf/libtool
+            sudo add-apt-repository --yes ppa:savoury1/build-tools
             sudo apt update
             sudo apt install g++
             sudo apt install make
