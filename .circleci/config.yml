@@ -36,7 +36,9 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build_and_test:
+  dedicated_runner:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - build
