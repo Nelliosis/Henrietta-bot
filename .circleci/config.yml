@@ -26,10 +26,16 @@ jobs:
       - run:
           name: "install"
           command: "npm install"
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
   test:
     docker:
       - image: cimg/node:17.2
     steps:
+      - attach_workspace:
+          at: ~/project
       - run:
           name: "test"
           command: "npm test"
