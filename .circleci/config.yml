@@ -26,25 +26,17 @@ jobs:
       - run:
           name: "install"
           command: "npm install"
-      - persist_to_workspace:
-          root: /tmp/workspace
-          paths:
-            - .node_modules
   test:
     docker:
       - image: cimg/node:17.2
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
       - run:
           name: "test"
           command: "npm test"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build:
+  build_and_test:
     jobs:
       - build
-  test:
-    jobs:
       - test
