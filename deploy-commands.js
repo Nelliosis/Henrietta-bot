@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord.js');
-const { clientId, token } = require('./config.json');
+require('dotenv').config()
 
 // set up the commands array
 const commands = [];
@@ -17,12 +17,11 @@ for (const file of commandFiles) {
     commands.push(command.data.toJSON());
 }
 
-const rest = new REST({ version: '10' }).setToken(token);
+const rest = new REST({ version: '10' }).setToken(process.env.token);
 
 // push the commands to client
-rest.put(Routes.applicationCommands(clientId), { body: commands })
+rest.put(Routes.applicationCommands(process.env.clientId), { body: commands })
     .then(() => console.log('[BERRY NOTE]: Commands registered.'))
-        .catch(console.error);
-    
+    .catch(console.error);
 
-        
+

@@ -25,7 +25,7 @@ module.exports = {
     async execute(interaction) {
         //declare embed variable
         const embed = new EmbedBuilder();
-        
+
         //declare connection variables
         const guild = interaction.guild.id;
         const user = interaction.user;
@@ -34,7 +34,7 @@ module.exports = {
         // check user connection to VC
         if (!interaction.member.voice.channel) {
             embedder.UserNotConnected(embed, user);
-            await interaction.reply({embeds: [embed]});
+            await interaction.reply({ embeds: [embed] });
             return;
         }
 
@@ -44,9 +44,9 @@ module.exports = {
         //if no connection is established, connect
         if (!connection) {
             connection = joinVoiceChannel({
-            channelId: interaction.member.voice.channel.id,
-            guildId: interaction.guild.id,
-            adapterCreator: interaction.guild.voiceAdapterCreator,
+                channelId: interaction.member.voice.channel.id,
+                guildId: interaction.guild.id,
+                adapterCreator: interaction.guild.voiceAdapterCreator,
             });
             //initialize queue
             queueHandler.makeQueue(guild, connection);
@@ -73,7 +73,7 @@ module.exports = {
         let check = await play.validate(input);
 
         //if no input received then invalid
-        if (!check){
+        if (!check) {
             //embed
             embedder.InvalidChoice(embed, user);
             await interaction.reply({ embeds: [embed] });
@@ -83,7 +83,7 @@ module.exports = {
         //once validated, commence enqueue by platform
         switch (check) {
             case 'search':
-            case 'yt_video':{
+            case 'yt_video': {
                 //add song to queue
                 const [track] = await play.search(input, { limit: 1 });
                 const trackData = objectifier.trackObjectifier(track, 'yt', user);
@@ -93,9 +93,10 @@ module.exports = {
                 const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
                 //embed
-                embedder.YTTrack(embed,track,user,performanceTime.toFixed(2));
-                break;}
-            case 'sp_track':{
+                embedder.YTTrack(embed, track, user, performanceTime.toFixed(2));
+                break;
+            }
+            case 'sp_track': {
                 //add song to queue
                 const track = await play.spotify(input, { limit: 1 });
                 const trackData = objectifier.trackObjectifier(track, 'sp', user);
@@ -106,7 +107,8 @@ module.exports = {
                 console.log("[BERRY NOTE] Successfully added to queue.");
                 //embed
                 embedder.SPTrack(embed, track, user, performanceTime.toFixed(2));
-                break;}
+                break;
+            }
             case 'yt_playlist': {
                 //add songs to queue
                 const songs = await play.playlist_info(input);
@@ -120,8 +122,9 @@ module.exports = {
                 const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
                 //embed
-                embedder.YTPlaylist(embed,songs,user,performanceTime.toFixed(2));
-                break;}
+                embedder.YTPlaylist(embed, songs, user, performanceTime.toFixed(2));
+                break;
+            }
             case 'sp_playlist': {
                 //add songs to queue
                 const songs = await play.spotify(input);
@@ -135,8 +138,9 @@ module.exports = {
                 const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
                 //embed
-                embedder.SPPlaylist(embed,songs,user,performanceTime.toFixed(2))
-                break;}
+                embedder.SPPlaylist(embed, songs, user, performanceTime.toFixed(2))
+                break;
+            }
             case 'sp_album': {
                 const songs = await play.spotify(input);
                 const tracks = await songs.all_tracks();
@@ -151,29 +155,31 @@ module.exports = {
                 const performanceTime = endTime - startTime;
                 console.log("[BERRY NOTE] Successfully added to queue.");
                 //embed
-                embedder.SPAlbum(embed,songs,user,performanceTime.toFixed(2))
-                break;}
+                embedder.SPAlbum(embed, songs, user, performanceTime.toFixed(2))
+                break;
+            }
             case 'default': {
                 console.log(`[BERRY UNAUTHORIZED] ${user.username} tried invoking /play with an unsupported platform. Returned.`);
                 embedder.InvalidChoice(embed, user);
                 await interaction.reply({ embeds: [embed] });
-                return;}
+                return;
+            }
         }
 
         // Check if bot is playing. 
         // If playing, do not interrupt and return before startPlay executes
         // Copyright 28Goo
-		const subscription = connection.state.subscription;
-		if (subscription) {
-			const playerStatus = subscription.player.state.status;
+        const subscription = connection.state.subscription;
+        if (subscription) {
+            const playerStatus = subscription.player.state.status;
             if (playerStatus === 'playing') {
-                await interaction.reply({embeds: [embed]});
-				return;
-			}
-		}
+                await interaction.reply({ embeds: [embed] });
+                return;
+            }
+        }
 
-        await interaction.reply({embeds: [embed]});
+        await interaction.reply({ embeds: [embed] });
         await startPlay(interaction);
-        
+
     }
 };
