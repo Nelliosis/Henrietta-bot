@@ -4,7 +4,8 @@
   "description": "A personal, multi-functional Discord companion bot",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
