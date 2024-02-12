@@ -27,7 +27,8 @@
     "libsodium-wrappers": "^0.7.10",
     "play-dl": "^1.9.6",
     "sodium": "^3.0.2",
-    "winston": "^3.11.0"
+    "winston": "^3.11.0",
+    "winston-loki": "^6.0.8"
   },
   "devDependencies": {
     "jest": "^29.4.1"
