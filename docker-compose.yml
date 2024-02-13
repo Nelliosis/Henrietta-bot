@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  henrietta:
+    container_name: Henrietta
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+  grafana:
+    container_name: Grafana
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    env_file:
+      - .env
+  prometheus:
+    container_name: Prometheus
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus_data:/etc/prometheus
+    env_file:
+      - .env
+  grafana-loki:
+    container_name: GrafanaLoki
+    image: grafana/loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - loki_data:/etc/loki
+    env_file:
+      - .env
+
+networks:
+  default:
+    external:
+      name: henrietta
