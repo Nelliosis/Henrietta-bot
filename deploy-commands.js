@@ -14,7 +14,10 @@ const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);
-    commands.push(command.data.toJSON());
+    // Only deploy commands that have a data property (slash commands)
+    if (command.data) {
+        commands.push(command.data.toJSON());
+    }
 }
 
 const rest = new REST({ version: '10' }).setToken(process.env.token);

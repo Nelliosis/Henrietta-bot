@@ -12,7 +12,7 @@ myIntents.add(
     IntentsBitField.Flags.GuildVoiceStates,
     IntentsBitField.Flags.GuildMessageReactions,
     IntentsBitField.Flags.DirectMessages,
-
+    IntentsBitField.Flags.MessageContent,
 )
 const client = new Client({ intents: [myIntents], });
 
@@ -23,7 +23,10 @@ const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);
-    client.commands.set(command.data.name, command);
+    // Only set commands that have a data property (slash commands)
+    if (command.data) {
+        client.commands.set(command.data.name, command);
+    }
 }
 
 // prepare and read events
@@ -39,6 +42,34 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args));
     }
 }
+
+// Handle prefix-based commands for backwards compatibility  
+const prefix = '!!';
+client.on('messageCreate', async message => {
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const commandName = args.shift().toLowerCase();
+
+    // Music commands
+    const musicCommands = ['play', 'skip', 'stop', 'leave', 'pause', 'resume', 'queue', 'clear'];
+    if (musicCommands.includes(commandName)) {
+        const { handlePrefixMusicCommand } = require('./commands/music');
+        try {
+            await handlePrefixMusicCommand(message, args, commandName);
+        } catch (error) {
+            console.error('[BERRY ERROR] Prefix music command error:', error);
+            message.channel.send('❌ An error occurred with the music command!');
+        }
+        return;
+    }
+
+    // Handle other prefix commands here if needed
+    if (commandName === 'commands' || commandName === 'help') {
+        message.channel.send('🎵 **Music Commands:**\n`/play song <song>` - Play a song\n`/play skip` - Skip current song\n`/play stop` - Stop and leave\n`/play pause` - Pause current song\n`/play resume` - Resume paused song\n`/play queue` - Show queue\n`/play clear` - Clear queue');
+        return;
+    }
+});
 
 // call commands on interaction
 client.on('interactionCreate', async interaction => {
